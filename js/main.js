@@ -292,4 +292,214 @@
       else { cancelAnimationFrame(raf2); raf2 = null; }
     }, { threshold: 0 }).observe(heroD);
   }
+
+  /* =================================================================
+     Project Popup Modal
+     ================================================================= */
+  const projectData = {
+    'disaster-drones': {
+      title: 'Multiagent Hybrid Disaster Rescue Drones',
+      category: 'UAV & Robotics · Autonomous Systems',
+      desc: 'A cooperative multi-drone system engineered for post-disaster search, victim detection, and precision emergency aid delivery in challenging environments. The system integrates low-latency video transmission directly to edge inference engines for immediate situational awareness.',
+      highlights: [
+        'Automated lawnmower search pattern navigation coordinated via MAVSDK and ArduPilot flight stack.',
+        'Fine-tuned YOLOv8 model delivering 90% human detection accuracy at 8 m altitude under variable outdoor conditions.',
+        'RTSP video pipeline processing high-definition streams from a SIYI A8 Mini gimbaled sensor.',
+        'Autonomous release mechanism delivering life-saving medical supplies directly to detected GPS coordinates.'
+      ],
+      tags: ['YOLOv8', 'OpenCV', 'MAVLink', 'ArduPilot', 'Python', 'MAVSDK', 'Autonomous Flight'],
+      links: [
+        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02' },
+        { label: 'View Publication', url: '#publications' }
+      ]
+    },
+    'scan-spray': {
+      title: 'Dual UAV Scan & Spray — Precision Agriculture',
+      category: 'UAV & Robotics · Agricultural Automation',
+      desc: 'An autonomous dual-drone ecosystem engineered to optimize crop disease detection and micro-targeted chemical spraying, minimizing chemical waste while safeguarding crop yields.',
+      highlights: [
+        'Real-time crop disease detection using HSV segmentation and dual-mask thresholding (70% accuracy at 6 m altitude).',
+        'Fabricated custom carbon-fiber quadrotor frame engineered to carry 10 kg fluid payload with 25 cm spraying accuracy.',
+        'Designed custom PCB and Raspberry Pi controller driving dual high-pressure nozzles with PWM flow throttling.',
+        'Rigorously tested under variable outdoor solar conditions and gusty wind profiles.'
+      ],
+      tags: ['OpenCV', 'Raspberry Pi', 'PCB Design', 'UAV Fabrication', 'C++', 'Python', 'Precision Ag'],
+      links: [
+        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02' }
+      ]
+    },
+    'nav-assistant': {
+      title: 'Context Aware Navigation Assistant',
+      category: 'Computer Vision & Robotics · Perception',
+      desc: 'End-to-end perception and dynamic reasoning engine developed for real-time robotic navigation in high-density urban environments with moving obstacles.',
+      highlights: [
+        'YOLOv8 + OpenCV perception pipeline detecting vehicles, pedestrians, and traffic signals (75% accuracy, 90% precision).',
+        'Custom spatial reasoning engine calculating object velocity vectors and time-to-collision.',
+        'Dynamic risk assessment module issuing instant navigational directives: stop, proceed, or safely turn.',
+        'Operates in real-time under low light, heavy rainfall, and partial lens occlusions.'
+      ],
+      tags: ['YOLOv8', 'OpenCV', 'Python', 'Spatial Reasoning', 'Risk Assessment', 'Robotics'],
+      links: [
+        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02' }
+      ]
+    },
+    'careflow': {
+      title: 'CareFlow — Clinic Management System',
+      category: 'Backend & DevOps · Healthcare Platform',
+      desc: 'A production-grade enterprise clinic management solution built with modern API architecture and relational data integrity to streamline clinic workflows.',
+      highlights: [
+        '38 REST API endpoints built with FastAPI across 5 decoupled modules (patients, doctors, appointments, billing, analytics).',
+        '11-table Oracle SQL database schema equipped with 3 automated PL/SQL triggers for audit logging and fee computation.',
+        '4 analytical database views providing administrators with instantaneous revenue and workload insights.',
+        'Containerized with Docker and tested with automated pytest integration suites.'
+      ],
+      tags: ['FastAPI', 'Oracle SQL', 'PL/SQL', 'Docker', 'Python', 'REST API', 'Microservices'],
+      links: [
+        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02' }
+      ]
+    },
+    'qr-checkin': {
+      title: 'Real-Time QR Event Check-in System',
+      category: 'Full-Stack Web · Real-Time Systems',
+      desc: 'High-throughput event admission and attendee management platform featuring instantaneous sub-50ms synchronization across concurrent check-in stations.',
+      highlights: [
+        '7 RESTful API endpoints handling admission validation, attendee statuses, and credential issuance.',
+        'Cryptographically secure UUID and dynamic QR code generation with automated SMTP ticket delivery.',
+        'Live bidirectional state synchronization across 6 connected devices using Socket.IO WebSockets.',
+        'Role-based access control (RBAC) with secure JWT tokens and MongoDB persistence.'
+      ],
+      tags: ['Node.js', 'Express', 'MongoDB', 'Socket.IO', 'JWT', 'QR Generation', 'WebSockets'],
+      links: [
+        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02' }
+      ]
+    },
+    'autograde': {
+      title: 'AutoGrade — Intelligent Exam Evaluation System',
+      category: 'Machine Learning · Document AI',
+      desc: 'Automated optical and semantic grading system developed to ingest scanned handwritten examination sheets, transcribe responses, and produce step-by-step scoring.',
+      highlights: [
+        'Multimodal OCR pipeline combining Pixtral Large vision-language model, PaddleOCR, and EasyOCR.',
+        'Automated handwriting skew correction, line segmentation, and question bounding-box detection.',
+        'Evaluated 4,274 student responses against standardized rubrics with semantic keyword scoring.',
+        'Decreased faculty grading turnaround time by 80% while providing audit trails.'
+      ],
+      tags: ['Pixtral Large', 'PaddleOCR', 'EasyOCR', 'Python', 'LLM', 'OCR', 'PyTorch'],
+      links: [
+        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02' }
+      ]
+    }
+  };
+
+  const modal = $('#projModal');
+  const modalClose = $('#projModalClose');
+  const modalOverlay = $('#projModalOverlay');
+  const modalCategory = $('#projModalCategory');
+  const modalTitle = $('#projModalTitle');
+  const modalDesc = $('#projModalDesc');
+  const modalHighlights = $('#projModalHighlights');
+  const modalTags = $('#projModalTags');
+  const modalActions = $('#projModalActions');
+
+  function openProjectModal(key) {
+    const data = projectData[key];
+    if (!data || !modal) return;
+
+    if (modalCategory) modalCategory.textContent = data.category;
+    if (modalTitle) modalTitle.textContent = data.title;
+    if (modalDesc) modalDesc.textContent = data.desc;
+
+    if (modalHighlights) {
+      modalHighlights.innerHTML = data.highlights
+        .map(h => `<li>${h}</li>`)
+        .join('');
+    }
+
+    if (modalTags) {
+      modalTags.innerHTML = data.tags
+        .map(t => `<span class="proj-card__tag">${t}</span>`)
+        .join('');
+    }
+
+    if (modalActions) {
+      modalActions.innerHTML = data.links
+        .map(l => `
+          <a href="${l.url}" ${l.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
+            ${l.label} &rarr;
+          </a>
+        `).join('');
+    }
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProjectModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (modalClose) modalClose.addEventListener('click', closeProjectModal);
+  if (modalOverlay) modalOverlay.addEventListener('click', closeProjectModal);
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeProjectModal();
+    }
+  });
+
+  // Attach card listeners
+  $$('.proj-card').forEach(card => {
+    const key = card.dataset.project;
+    if (!key) return;
+
+    // Click on detail button
+    const btn = card.querySelector('.proj-card__detail-btn');
+    if (btn) {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        openProjectModal(key);
+      });
+    }
+
+    // Click on card itself (unless clicking an <a> link)
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      openProjectModal(key);
+    });
+  });
+
+  /* =================================================================
+     Contact Form Handling
+     ================================================================= */
+  const contactForm = $('#contactForm');
+  const cfStatus = $('#cfStatus');
+  if (contactForm) {
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(contactForm);
+      const name = (fd.get('name') || '').trim();
+      const email = (fd.get('email') || '').trim();
+      const message = (fd.get('message') || '').trim();
+
+      if (!name || !email || !message) {
+        if (cfStatus) {
+          cfStatus.textContent = 'Please fill out all fields.';
+          cfStatus.className = 'contact-form__status contact-form__status--error';
+        }
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio Message from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:harshalkolhe04@gmail.com?subject=${subject}&body=${body}`;
+
+      if (cfStatus) {
+        cfStatus.textContent = 'Thank you! Your email client has been opened to send your message.';
+        cfStatus.className = 'contact-form__status contact-form__status--success';
+      }
+      contactForm.reset();
+    });
+  }
 })();

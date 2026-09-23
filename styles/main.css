@@ -661,6 +661,10 @@ body.nav-open {
   user-select: none;
 }
 
+.hero__float--drone {
+  font-size: clamp(2.1rem, 3.3vw, 3rem);
+}
+
 @keyframes floatDrift {
   0% {
     opacity: 0;

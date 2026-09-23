@@ -88,15 +88,7 @@
     io.observe(el);
   });
 
-  /* ---------- Skill bars ---------- */
-  const sbIO = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.querySelectorAll('.skill-bar__fill').forEach(b => b.classList.add('in'));
-      sbIO.unobserve(e.target);
-    });
-  }, { threshold: 0.25 });
-  $$('.skill-bars-grid').forEach(el => sbIO.observe(el));
+  /* Skill bars removed — Technical Arsenal uses domain cards instead */
 
   /* ---------- Stat counters ---------- */
   const counted = new WeakSet();

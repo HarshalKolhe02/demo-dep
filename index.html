@@ -173,15 +173,9 @@
         <!-- Left: Photo card -->
         <div class="about__media reveal">
           <div class="about__avatar">
-            <div class="about__photo-placeholder">
-              <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              <span>Your Photo Here</span>
+            <div class="about__photo-box">
+              <img src="assets/img/about_pic.png" alt="Harshal Kolhe" class="about__photo-img" width="2260" height="2103" loading="eager" />
             </div>
-            <p class="about__avatar-sub">Harshal Kolhe</p>
           </div>
         </div>
 
@@ -826,329 +820,287 @@
     <section class="section toolkit" id="toolkit">
       <div class="section__head">
         <span class="section__index">07</span>
-        <h2 class="section__title reveal">Skills &amp; Toolkit</h2>
-        <p class="section__sub reveal">The stack I use to take ideas from simulation and breadboards to real flying
-          hardware and deployed APIs.</p>
+        <h2 class="section__title reveal">Technical Arsenal</h2>
+        <p class="section__sub reveal">From aircraft design and embedded systems to autonomous perception, control, and intelligent software.</p>
       </div>
 
-      <div class="skill-bars-grid reveal">
+      <!-- ── Domain Cards ── -->
+      <div class="arsenal__grid">
 
-        <div class="skill-col">
-          <p class="skill-col__label">Languages</p>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">Python</span>
-              <span class="skill-item__level">Advanced</span>
+        <!-- 01 · UAV & Autonomous Systems (hero full-width) -->
+        <article class="arsenal__card arsenal__card--hero reveal" id="arsenal-uav">
+          <div class="arsenal__card-header">
+            <div class="arsenal__card-meta">
+              <span class="arsenal__card-idx">01</span>
+              <span class="arsenal__badge--core">Core Domain</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:88%"></div>
+            <h3 class="arsenal__card-title">UAV &amp; Autonomous Systems</h3>
+            <p class="arsenal__card-desc">Designing and deploying autonomous aerial systems for navigation, perception, search &amp; rescue, and real-world missions.</p>
+          </div>
+          <div class="arsenal__card-body">
+            <div class="arsenal__tags" role="list" aria-label="Technologies">
+              <span class="arsenal__tag" data-tooltip="Flight Control · Mission Planning · Telemetry">ArduPilot</span>
+              <span class="arsenal__tag" data-tooltip="Open UAV Platform · Autopilot">PX4</span>
+              <span class="arsenal__tag" data-tooltip="Ground Control Station · Mission Upload">QGroundControl</span>
+              <span class="arsenal__tag" data-tooltip="Mission Planning · Waypoints · Geofencing">Mission Planner</span>
+              <span class="arsenal__tag" data-tooltip="Telemetry · Flight-State Communication · 100 Hz Streams">MAVLink</span>
+              <span class="arsenal__tag" data-tooltip="Drone Programming API · Autonomous Missions">MAVSDK</span>
+              <span class="arsenal__tag" data-tooltip="Python UAV SDK · Mission Scripting">DroneKit</span>
+              <span class="arsenal__tag" data-tooltip="Robot Middleware · Nodes · Topics · Perception">ROS 2</span>
+              <span class="arsenal__tag" data-tooltip="Onboard Computing · Autonomous Systems">Linux</span>
             </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">FastAPI</span>
-              <span class="skill-item__tag">OpenCV</span>
-              <span class="skill-item__tag">MAVSDK</span>
+            <div class="arsenal__concepts">
+              <span class="arsenal__concept">Autonomous Navigation</span>
+              <span class="arsenal__concept">Mission Planning</span>
+              <span class="arsenal__concept">Telemetry</span>
+              <span class="arsenal__concept">Multi-UAV Systems</span>
+              <span class="arsenal__concept">Target Localization</span>
+              <span class="arsenal__concept">Mission Execution</span>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">C / C++</span>
-              <span class="skill-item__level">Advanced</span>
+        </article>
+
+        <!-- 02 · Robotics, Control & Flight Systems -->
+        <article class="arsenal__card arsenal__card--primary reveal" id="arsenal-control">
+          <div class="arsenal__card-header">
+            <span class="arsenal__card-idx">02</span>
+            <h3 class="arsenal__card-title">Robotics, Control &amp; Flight Systems</h3>
+            <p class="arsenal__card-desc">Building real-time autonomy and control pipelines for aerial robots, from onboard inference to 100 Hz telemetry.</p>
+          </div>
+          <div class="arsenal__card-body">
+            <div class="arsenal__tags" role="list" aria-label="Technologies">
+              <span class="arsenal__tag" data-tooltip="Payload Stabilization · Policy Control">Reinforcement Learning</span>
+              <span class="arsenal__tag" data-tooltip="Flight Tuning · Feedback Control">PID</span>
+              <span class="arsenal__tag" data-tooltip="Optimal State-Space Control">LQR</span>
+              <span class="arsenal__tag" data-tooltip="Predictive Control · Trajectory Optimization">MPC</span>
+              <span class="arsenal__tag" data-tooltip="Telemetry · Flight-State Streaming · 100 Hz">MAVLink</span>
+              <span class="arsenal__tag" data-tooltip="Flight Controller · Onboard Compute">CubeOrange</span>
+              <span class="arsenal__tag" data-tooltip="Flight Autonomy · Mission Execution">Flight Control</span>
+              <span class="arsenal__tag" data-tooltip="Live Mission Data · 100 Hz Streams">Real-Time Telemetry</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:82%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Flight Code</span>
-              <span class="skill-item__tag">Algorithms</span>
-              <span class="skill-item__tag">STL</span>
+            <div class="arsenal__concepts">
+              <span class="arsenal__concept">Autonomous Stabilization</span>
+              <span class="arsenal__concept">Payload Control</span>
+              <span class="arsenal__concept">State Estimation</span>
+              <span class="arsenal__concept">Flight-State Streaming</span>
+              <span class="arsenal__concept">Real-Time Control</span>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">Embedded C</span>
-              <span class="skill-item__level">Proficient</span>
+        </article>
+
+        <!-- 03 · Aircraft Design & Fabrication -->
+        <article class="arsenal__card arsenal__card--primary arsenal__card--fabrication reveal" id="arsenal-fab">
+          <div class="arsenal__card-header">
+            <span class="arsenal__card-idx">03</span>
+            <h3 class="arsenal__card-title">Aircraft Design &amp; Fabrication</h3>
+            <p class="arsenal__card-desc">Designing, analysing, fabricating, and integrating custom UAV platforms — from airfoil selection to carbon-fibre layup.</p>
+          </div>
+          <div class="arsenal__card-flow">
+            <span>Design</span><span class="arsenal__flow-arrow" aria-hidden="true">→</span>
+            <span>Analyse</span><span class="arsenal__flow-arrow" aria-hidden="true">→</span>
+            <span>Fabricate</span><span class="arsenal__flow-arrow" aria-hidden="true">→</span>
+            <span>Fly</span>
+          </div>
+          <div class="arsenal__card-body">
+            <div class="arsenal__tags" role="list" aria-label="Technologies">
+              <span class="arsenal__tag" data-tooltip="3D CAD · Assembly · Structural Design">SolidWorks</span>
+              <span class="arsenal__tag" data-tooltip="Parametric CAD · Airframe Modelling">Fusion 360</span>
+              <span class="arsenal__tag" data-tooltip="Airfoil Analysis · Aerodynamics · Stability">XFLR5</span>
+              <span class="arsenal__tag" data-tooltip="Simulation · Telemetry Analysis · Control Design">MATLAB</span>
+              <span class="arsenal__tag" data-tooltip="Lightweight Structural Fabrication · 10 kg Payload">Carbon Fiber</span>
+              <span class="arsenal__tag" data-tooltip="Custom Electronics · Sensor Boards">PCB Design</span>
+              <span class="arsenal__tag" data-tooltip="Prototype Iteration · Jigs">PCB Fabrication</span>
+              <span class="arsenal__tag" data-tooltip="Parametric 3D Modelling">3D CAD</span>
+              <span class="arsenal__tag" data-tooltip="Lift · Drag · Stability Margins">Aerodynamic Analysis</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:74%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">STM32</span>
-              <span class="skill-item__tag">ESP32</span>
-              <span class="skill-item__tag">UART / I2C</span>
+            <div class="arsenal__concepts">
+              <span class="arsenal__concept">Fixed-Wing Design</span>
+              <span class="arsenal__concept">Quadcopter Design</span>
+              <span class="arsenal__concept">Airfoil Analysis</span>
+              <span class="arsenal__concept">Structural Design</span>
+              <span class="arsenal__concept">Payload Integration</span>
+              <span class="arsenal__concept">Hardware Fabrication</span>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">SQL</span>
-              <span class="skill-item__level">Proficient</span>
+        </article>
+
+        <!-- 04 · AI, Computer Vision & Perception -->
+        <article class="arsenal__card reveal" id="arsenal-cv">
+          <div class="arsenal__card-header">
+            <span class="arsenal__card-idx">04</span>
+            <h3 class="arsenal__card-title">AI, Computer Vision &amp; Perception</h3>
+            <p class="arsenal__card-desc">Building visual perception pipelines for autonomous systems — object detection, aerial vision, and OCR.</p>
+          </div>
+          <div class="arsenal__card-body">
+            <div class="arsenal__tags" role="list" aria-label="Technologies">
+              <span class="arsenal__tag" data-tooltip="Computer Vision · Image Processing · Perception">OpenCV</span>
+              <span class="arsenal__tag" data-tooltip="Deep Learning · Training · Inference">PyTorch</span>
+              <span class="arsenal__tag" data-tooltip="Object Detection · Aerial Vision · Edge Inference">YOLOv8</span>
+              <span class="arsenal__tag" data-tooltip="Numerical Computing · Telemetry Analysis">NumPy</span>
+              <span class="arsenal__tag" data-tooltip="Data Analysis · Logs · Telemetry">Pandas</span>
+              <span class="arsenal__tag" data-tooltip="Telemetry Plotting · Analysis">Matplotlib</span>
+              <span class="arsenal__tag" data-tooltip="Optical Character Recognition">EasyOCR</span>
+              <span class="arsenal__tag" data-tooltip="Optical Character Recognition · Scene Text">PaddleOCR</span>
+              <span class="arsenal__tag" data-tooltip="Autonomous Perception · Autonomy Scripting">Python</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:80%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Oracle PL/SQL</span>
-              <span class="skill-item__tag">PostgreSQL</span>
-              <span class="skill-item__tag">Triggers</span>
+            <div class="arsenal__concepts">
+              <span class="arsenal__concept">Object Detection</span>
+              <span class="arsenal__concept">Aerial Vision</span>
+              <span class="arsenal__concept">Image Segmentation</span>
+              <span class="arsenal__concept">OCR</span>
+              <span class="arsenal__concept">Target Detection</span>
+              <span class="arsenal__concept">Autonomous Perception</span>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">Java</span>
-              <span class="skill-item__level">Familiar</span>
+        </article>
+
+        <!-- 05 · Embedded Systems & Hardware -->
+        <article class="arsenal__card reveal" id="arsenal-embedded">
+          <div class="arsenal__card-header">
+            <span class="arsenal__card-idx">05</span>
+            <h3 class="arsenal__card-title">Embedded Systems &amp; Hardware</h3>
+            <p class="arsenal__card-desc">Connecting autonomous intelligence with real-world sensors, flight controllers, and embedded hardware.</p>
+          </div>
+          <div class="arsenal__card-body">
+            <div class="arsenal__tags" role="list" aria-label="Technologies">
+              <span class="arsenal__tag" data-tooltip="Bare-Metal Programming · Microcontrollers">Embedded C</span>
+              <span class="arsenal__tag" data-tooltip="Onboard Computing · Linux SBC">Raspberry Pi</span>
+              <span class="arsenal__tag" data-tooltip="Wi-Fi · BLE · Real-Time Firmware">ESP32</span>
+              <span class="arsenal__tag" data-tooltip="ARM Cortex-M · Real-Time Systems">STM32</span>
+              <span class="arsenal__tag" data-tooltip="Rapid Prototyping · Sensor Integration">Arduino</span>
+              <span class="arsenal__tag" data-tooltip="Flight Controller · Autopilot Hardware">CubeOrange</span>
+              <span class="arsenal__tag" data-tooltip="Serial Communication · Sensors">UART</span>
+              <span class="arsenal__tag" data-tooltip="Sensor Bus · IMU · Magnetometer">I2C</span>
+              <span class="arsenal__tag" data-tooltip="Embedded SOM · Compute Module">Unex SOM-352</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:65%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Core OOP</span>
-              <span class="skill-item__tag">Data Structures</span>
+            <div class="arsenal__concepts">
+              <span class="arsenal__concept">Onboard Computing</span>
+              <span class="arsenal__concept">Sensor Integration</span>
+              <span class="arsenal__concept">Flight Controllers</span>
+              <span class="arsenal__concept">Real-Time Systems</span>
+              <span class="arsenal__concept">Hardware Communication</span>
+              <span class="arsenal__concept">PCB Integration</span>
             </div>
           </div>
+        </article>
+
+        <!-- 06 · Software Engineering -->
+        <article class="arsenal__card arsenal__card--software reveal" id="arsenal-software">
+          <div class="arsenal__card-header">
+            <span class="arsenal__card-idx">06</span>
+            <h3 class="arsenal__card-title">Software Engineering</h3>
+            <p class="arsenal__card-desc">Building reliable backend systems, APIs, data pipelines, and deployable applications to support autonomous systems.</p>
+          </div>
+          <div class="arsenal__card-body">
+            <div class="arsenal__tags" role="list" aria-label="Technologies">
+              <span class="arsenal__tag" data-tooltip="Systems Programming · Flight Code">C</span>
+              <span class="arsenal__tag" data-tooltip="Performance · STL · Algorithms">C++</span>
+              <span class="arsenal__tag" data-tooltip="Scripting · ML · Backend">Python</span>
+              <span class="arsenal__tag" data-tooltip="OOP · Data Structures">Java</span>
+              <span class="arsenal__tag" data-tooltip="Relational Databases · PL/SQL">SQL</span>
+              <span class="arsenal__tag" data-tooltip="REST APIs · Async · High Performance">FastAPI</span>
+              <span class="arsenal__tag" data-tooltip="Backend Runtime · APIs">Node.js</span>
+              <span class="arsenal__tag" data-tooltip="Web Framework · REST">Express.js</span>
+              <span class="arsenal__tag" data-tooltip="NoSQL Database · Document Store">MongoDB</span>
+              <span class="arsenal__tag" data-tooltip="Relational Database · ACID">PostgreSQL</span>
+              <span class="arsenal__tag" data-tooltip="Enterprise SQL · PL/SQL Triggers">Oracle SQL</span>
+              <span class="arsenal__tag" data-tooltip="Containerisation · Deployment">Docker</span>
+              <span class="arsenal__tag" data-tooltip="Version Control · Branching">Git</span>
+              <span class="arsenal__tag" data-tooltip="CI/CD · Automated Workflows">GitHub Actions</span>
+              <span class="arsenal__tag" data-tooltip="Cloud Hosting · EC2 · S3">AWS</span>
+              <span class="arsenal__tag" data-tooltip="HTTP APIs · Integration">REST APIs</span>
+              <span class="arsenal__tag" data-tooltip="Live Telemetry · Real-Time Sync">Socket.IO</span>
+              <span class="arsenal__tag" data-tooltip="Real-Time Communication · Low Latency">WebSockets</span>
+            </div>
+            <div class="arsenal__concepts">
+              <span class="arsenal__concept">Backend Development</span>
+              <span class="arsenal__concept">REST APIs</span>
+              <span class="arsenal__concept">Database Systems</span>
+              <span class="arsenal__concept">Real-Time Applications</span>
+              <span class="arsenal__concept">Cloud Deployment</span>
+              <span class="arsenal__concept">CI/CD</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.arsenal__grid -->
+
+      <!-- ── Engineering Stack Flow ── -->
+      <div class="arsenal__stack-flow reveal" aria-label="Engineering stack">
+        <div class="arsenal__stack-item">
+          <span class="arsenal__stack-label">Design</span>
         </div>
-
-        <div class="skill-col">
-          <p class="skill-col__label">UAV &amp; Robotics</p>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">ArduPilot / Mission Planner</span>
-              <span class="skill-item__level">Expert</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:91%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Waypoints</span>
-              <span class="skill-item__tag">Tuning</span>
-              <span class="skill-item__tag">Telemetry</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">MAVLink / MAVSDK / DroneKit</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:88%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">100 Hz Streams</span>
-              <span class="skill-item__tag">Autonomy</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">ROS 2</span>
-              <span class="skill-item__level">Proficient</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:78%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Nodes</span>
-              <span class="skill-item__tag">Topics</span>
-              <span class="skill-item__tag">Perception</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">UAV Design &amp; Fabrication</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:85%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Carbon-Fiber</span>
-              <span class="skill-item__tag">10kg Payload</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">QGroundControl</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:87%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Geofencing</span>
-              <span class="skill-item__tag">Mission Upload</span>
-            </div>
-          </div>
+        <span class="arsenal__stack-arrow" aria-hidden="true"></span>
+        <div class="arsenal__stack-item">
+          <span class="arsenal__stack-label">Airframe</span>
         </div>
-
-        <div class="skill-col">
-          <p class="skill-col__label">ML &amp; Computer Vision</p>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">OpenCV</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:90%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">HSV Masking</span>
-              <span class="skill-item__tag">RTSP Video</span>
-              <span class="skill-item__tag">Contours</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">YOLOv8 / Ultralytics</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:86%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Target Detect</span>
-              <span class="skill-item__tag">Edge Inference</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">Reinforcement Learning</span>
-              <span class="skill-item__level">Proficient</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:80%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Payload Stabilization</span>
-              <span class="skill-item__tag">Policy Control</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">LLM Integration</span>
-              <span class="skill-item__level">Proficient</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:74%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Instruction Parsing</span>
-              <span class="skill-item__tag">Schema Gen</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">NumPy / Pandas / Matplotlib</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:85%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Telemetry Analysis</span>
-              <span class="skill-item__tag">Plotting</span>
-            </div>
-          </div>
+        <span class="arsenal__stack-arrow" aria-hidden="true"></span>
+        <div class="arsenal__stack-item">
+          <span class="arsenal__stack-label">Embedded</span>
         </div>
-
-        <div class="skill-col">
-          <p class="skill-col__label">Backend &amp; DevOps</p>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">FastAPI / Node.js / Express</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:82%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">REST APIs</span>
-              <span class="skill-item__tag">Async Endpoints</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">MongoDB / PostgreSQL / Oracle SQL</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:80%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">PL/SQL Triggers</span>
-              <span class="skill-item__tag">Schemas</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">Docker / Git / Linux</span>
-              <span class="skill-item__level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:85%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Containers</span>
-              <span class="skill-item__tag">Bash Scripting</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">GitHub Actions / AWS</span>
-              <span class="skill-item__level">Proficient</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:72%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">CI/CD Workflows</span>
-              <span class="skill-item__tag">EC2 Hosting</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-item__head">
-              <span class="skill-item__name">Socket.IO / WebSockets</span>
-              <span class="skill-item__level">Proficient</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar__fill" style="--pct:78%"></div>
-            </div>
-            <div class="skill-item__tags">
-              <span class="skill-item__tag">Real-Time Sync</span>
-              <span class="skill-item__tag">Live Telemetry</span>
-            </div>
-          </div>
+        <span class="arsenal__stack-arrow" aria-hidden="true"></span>
+        <div class="arsenal__stack-item">
+          <span class="arsenal__stack-label">Flight&nbsp;Control</span>
         </div>
+        <span class="arsenal__stack-arrow" aria-hidden="true"></span>
+        <div class="arsenal__stack-item">
+          <span class="arsenal__stack-label">Perception</span>
+        </div>
+        <span class="arsenal__stack-arrow" aria-hidden="true"></span>
+        <div class="arsenal__stack-item">
+          <span class="arsenal__stack-label">Autonomy</span>
+        </div>
+        <span class="arsenal__stack-arrow" aria-hidden="true"></span>
+        <div class="arsenal__stack-item">
+          <span class="arsenal__stack-label">Software</span>
+        </div>
+      </div>
+      <p class="arsenal__stack-caption reveal">From physical systems to autonomous intelligence.</p>
 
+      <!-- ── Technologies strip ── -->
+      <div class="arsenal__tech-strip reveal">
+        <p class="arsenal__tech-strip-label">Technologies I work with</p>
+        <div class="tech-pills">
+          <span class="tech-pill">ArduPilot</span>
+          <span class="tech-pill">PX4</span>
+          <span class="tech-pill">QGroundControl</span>
+          <span class="tech-pill">Mission Planner</span>
+          <span class="tech-pill">MAVLink</span>
+          <span class="tech-pill">MAVSDK</span>
+          <span class="tech-pill">DroneKit</span>
+          <span class="tech-pill">ROS 2</span>
+          <span class="tech-pill">CubeOrange</span>
+          <span class="tech-pill">Raspberry Pi</span>
+          <span class="tech-pill">ESP32</span>
+          <span class="tech-pill">STM32</span>
+          <span class="tech-pill">Embedded C</span>
+          <span class="tech-pill">SolidWorks</span>
+          <span class="tech-pill">Fusion 360</span>
+          <span class="tech-pill">XFLR5</span>
+          <span class="tech-pill">MATLAB</span>
+          <span class="tech-pill">OpenCV</span>
+          <span class="tech-pill">YOLOv8</span>
+          <span class="tech-pill">PyTorch</span>
+          <span class="tech-pill">NumPy</span>
+          <span class="tech-pill">Pandas</span>
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">C++</span>
+          <span class="tech-pill">C</span>
+          <span class="tech-pill">Java</span>
+          <span class="tech-pill">SQL</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">Express.js</span>
+          <span class="tech-pill">MongoDB</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">Oracle SQL</span>
+          <span class="tech-pill">Docker</span>
+          <span class="tech-pill">Git</span>
+          <span class="tech-pill">AWS</span>
+          <span class="tech-pill">Linux</span>
+        </div>
       </div>
 
-      <!-- Tech pill cloud -->
-      <div class="tech-pills reveal">
-        <span class="tech-pill">Python</span>
-        <span class="tech-pill">C / C++</span>
-        <span class="tech-pill">Embedded C</span>
-        <span class="tech-pill">SQL</span>
-        <span class="tech-pill">ArduPilot</span>
-        <span class="tech-pill">MAVLink</span>
-        <span class="tech-pill">MAVSDK</span>
-        <span class="tech-pill">DroneKit</span>
-        <span class="tech-pill">ROS 2</span>
-        <span class="tech-pill">QGroundControl</span>
-        <span class="tech-pill">OpenCV</span>
-        <span class="tech-pill">YOLOv8</span>
-        <span class="tech-pill">NumPy</span>
-        <span class="tech-pill">Pandas</span>
-        <span class="tech-pill">Matplotlib</span>
-        <span class="tech-pill">FastAPI</span>
-        <span class="tech-pill">Node.js</span>
-        <span class="tech-pill">Express</span>
-        <span class="tech-pill">MongoDB</span>
-        <span class="tech-pill">Oracle SQL</span>
-        <span class="tech-pill">PostgreSQL</span>
-        <span class="tech-pill">Docker</span>
-        <span class="tech-pill">Git</span>
-        <span class="tech-pill">Linux</span>
-        <span class="tech-pill">AWS</span>
-        <span class="tech-pill">Socket.IO</span>
-        <span class="tech-pill">XFLR5</span>
-        <span class="tech-pill">MATLAB</span>
-      </div>
     </section>
 
     <!-- ====================== CONTACT ====================== -->

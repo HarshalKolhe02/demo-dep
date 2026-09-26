@@ -519,6 +519,13 @@ body.nav-open {
   background: var(--bg-2);
 }
 
+.hero__photo picture,
+.about__photo-box picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero__photo img {
   width: 100%;
   height: 100%;
@@ -3428,22 +3435,22 @@ body.nav-open {
 
 /* Section label for sub-groupings */
 .subsec-label {
-  font-family: var(--mono);
-  font-size: .72rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 18px;
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--text);
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .subsec-label::before {
   content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 2.5px;
   background: var(--accent);
   flex: none;
 }
@@ -3562,36 +3569,68 @@ body.nav-open {
   opacity: .7;
 }
 
-/* ---------- Project Card: Image Placeholder & Interaction ---------- */
+/* ---------- Project Card: Image Container & Interaction ---------- */
 .proj-card {
   cursor: pointer;
 }
 
 .proj-card__image {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease), transform .3s var(--ease);
+}
+
+.proj-card__image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.proj-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1), filter .3s ease;
+}
+
+/* Subtle dark scrim over image for seamless contrast */
+.proj-card__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+  transition: opacity .3s;
+}
+
+/* Fallback / empty placeholder state if ever used */
+.proj-card__image--placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  border-style: dashed;
   background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 5%, var(--surface)), color-mix(in srgb, var(--accent-2) 4%, var(--surface-2)));
-  border: 1px dashed var(--line-2);
-  border-radius: var(--radius-sm);
-  margin-bottom: 16px;
   color: var(--faint);
-  transition: border-color .3s, background .3s, transform .3s;
-  overflow: hidden;
-  position: relative;
 }
 
-.proj-card__image svg {
+.proj-card__image--placeholder svg {
   color: var(--accent-3);
   opacity: .35;
   transition: opacity .3s, transform .3s;
 }
 
-.proj-card__image span {
+.proj-card__image--placeholder span {
   font-family: var(--mono);
   font-size: .65rem;
   letter-spacing: .1em;
@@ -3600,15 +3639,17 @@ body.nav-open {
   transition: opacity .3s;
 }
 
+/* Hover overlay button */
 .proj-card__image-hover {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  background: color-mix(in srgb, var(--bg) 80%, transparent);
-  backdrop-filter: blur(3px);
+  gap: 8px;
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   opacity: 0;
   transition: opacity .3s var(--ease);
   font-family: var(--mono);
@@ -3617,17 +3658,31 @@ body.nav-open {
   letter-spacing: .08em;
   text-transform: uppercase;
   font-weight: 500;
+  z-index: 2;
+}
+
+.proj-card__image-hover svg {
+  transition: transform .3s var(--ease);
 }
 
 .proj-card:hover .proj-card__image-hover {
   opacity: 1;
 }
 
-.proj-card:hover .proj-card__image {
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+.proj-card:hover .proj-card__image-hover svg {
+  transform: scale(1.1);
 }
 
-.proj-card:hover .proj-card__image svg {
+.proj-card:hover .proj-card__image {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  box-shadow: 0 8px 24px -6px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.proj-card:hover .proj-card__image img {
+  transform: scale(1.05);
+}
+
+.proj-card:hover .proj-card__image--placeholder svg {
   opacity: .7;
   transform: scale(1.05);
 }

@@ -29,6 +29,7 @@
     href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preload" as="image" href="assets/img/landing_page.webp" type="image/webp" fetchpriority="high" />
 </head>
 
 <body>
@@ -93,7 +94,11 @@
     <!-- ====================== HERO ====================== -->
     <section class="hero hero--gradient" id="hero">
       <div class="hero__photo" aria-hidden="true">
-        <img src="assets/img/landing_page.png" alt="" width="1600" height="900" fetchpriority="high" decoding="async" />
+        <picture>
+          <source srcset="assets/img/landing_page.webp" type="image/webp" />
+          <img src="assets/img/landing_page.png" alt="" width="1800" height="1381" fetchpriority="high"
+            decoding="async" />
+        </picture>
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
       <canvas class="hero__canvas drone-canvas" id="droneCanvas" aria-hidden="true"></canvas>
@@ -176,8 +181,11 @@
         <div class="about__media reveal">
           <div class="about__avatar">
             <div class="about__photo-box">
-              <img src="assets/img/about_pic.png" alt="Harshal Kolhe" class="about__photo-img" width="2260"
-                height="2103" loading="eager" />
+              <picture>
+                <source srcset="assets/img/about_pic.webp" type="image/webp" />
+                <img src="assets/img/about_pic.png" alt="Harshal Kolhe" class="about__photo-img" width="1200"
+                  height="1117" loading="lazy" decoding="async" />
+              </picture>
             </div>
           </div>
         </div>
@@ -308,7 +316,7 @@
             <span class="exp-tag">V2X</span>
             <span class="exp-tag">UAVs</span>
             <span class="exp-tag">Embedded Systems</span>
-            <span class="exp-tag">Authenticatio</span>
+            <span class="exp-tag">Authentication</span>
             <span class="exp-tag">Wireless Networking</span>
             <span class="exp-tag">Secure Communication</span>
           </div>
@@ -375,54 +383,53 @@
           <div class="exp-card__head">
             <div class="exp-card__info">
               <h3 class="exp-card__role">Robotics Research Intern</h3>
-              <p class="exp-card__company">IvLabs (VNIT Nagpur)</p>
+              <p class="exp-card__company">IvLabs, VNIT Nagpur</p>
             </div>
             <div class="exp-card__meta">
               <span class="exp-card__badge exp-card__badge--research">RESEARCH</span>
-              <span class="exp-card__dates">May 2024 &ndash; Present</span>
-              <span class="exp-card__loc">Nagpur, India (Robotics Lab)</span>
+              <span class="exp-card__dates">May 2024 &ndash; July 2024</span>
+              <span class="exp-card__loc">Nagpur, India</span>
             </div>
           </div>
 
           <div class="exp-card__body">
             <div class="exp-block">
               <span class="exp-block__label">WHAT I BUILT</span>
-              <p class="exp-block__text">Designed the algorithmic coordinator for an Autonomous Multi-UAV Search and
-                Rescue swarm. Developed path planning (A*, RRT*), dynamic collision avoidance nodes, and YOLO
-                localization targets, integrating them via ROS.</p>
+              <p class="exp-block__text">Designed and developed a custom fixed-wing UAV, covering aerodynamic analysis,
+                aircraft sizing, CAD design, fabrication, and flight testing.</p>
             </div>
 
             <div class="exp-block">
               <span class="exp-block__label">ENGINEERING CHALLENGES</span>
-              <p class="exp-block__text">Coordinating decentralized collision avoidance without constant global
-                communication. I implemented a localized velocity-obstacle (VO) algorithm that ran on-board each
-                simulated drone, calculating collision-free trajectories asynchronously.</p>
+              <p class="exp-block__text">Optimizing aircraft geometry and performance through airfoil selection, weight
+                estimation, thrust-to-weight analysis, wing sizing, and centre-of-gravity adjustment, while prioritizing
+                a simple, practical, and easily manufacturable airframe design.</p>
             </div>
 
             <div class="exp-block exp-block--impact">
               <span class="exp-block__label">IMPACT &amp; RESULTS</span>
-              <p class="exp-block__text">Conducted 50+ simulation flight tests and 3 physical drone test flights.
-                Successfully located target human models in under 4 minutes across a 100m x 100m grid using a 2-UAV
-                swarm.</p>
+              <p class="exp-block__text">Selected the NACA2412 airfoil through XFLR5 analysis, designed a 1.25 m
+                wingspan aircraft with a 25 cm chord, fabricated the airframe using foam, carbon-fibre reinforcement and
+                3D-printed components, and conducted flight testing.</p>
             </div>
 
             <div class="exp-block">
               <span class="exp-block__label">KEY LEARNINGS</span>
-              <p class="exp-block__text">Developed strong competencies in multi-agent swarm logic, Gazebo spatial
-                physics engines, ROS node scheduling optimization, and physical hardware flight debugging.</p>
+              <p class="exp-block__text">Acquired hands-on experience in aerodynamic analysis, fixed-wing aircraft
+                design, CAD modelling, aircraft sizing, fabrication, centre-of-gravity adjustment, and flight testing.
+              </p>
             </div>
           </div>
 
           <hr class="exp-card__divider" />
 
           <div class="exp-card__tags">
-            <span class="exp-tag">C++</span>
-            <span class="exp-tag">Python</span>
-            <span class="exp-tag">ROS</span>
-            <span class="exp-tag">DroneKit</span>
-            <span class="exp-tag">Gazebo Simulator</span>
-            <span class="exp-tag">PX4</span>
-            <span class="exp-tag">YOLOv8</span>
+            <span class="exp-tag">XFLR5</span>
+            <span class="exp-tag">CAD</span>
+            <span class="exp-tag">ArduPlane</span>
+            <span class="exp-tag">Aerodynamic Analysis</span>
+            <span class="exp-tag">Aircraft Design</span>
+            <span class="exp-tag">3D Printing</span>
           </div>
         </article>
 
@@ -434,24 +441,22 @@
       <div class="section__head">
         <span class="section__index">03</span>
         <h2 class="section__title reveal">Featured Projects</h2>
-        <p class="section__sub reveal">Systems I&rsquo;ve designed, built, and validated &mdash; from autonomous UAV
-          fleets to full-stack production platforms.</p>
+        <!-- <p class="section__sub reveal">Systems I&rsquo;ve designed, built, and validated &mdash; from autonomous UAV
+          fleets to full-stack production platforms.</p> -->
+        <p class="section__sub reveal">A closer look at the projects I&rsquo;ve designed, built, and tested.</p>
       </div>
 
       <!-- UAV & Robotics -->
       <div class="proj-cat">
-        <p class="subsec-label reveal">UAV &amp; Robotics</p>
         <div class="proj-cards">
 
           <article class="proj-card reveal" data-cursor="hover" data-project="disaster-drones">
             <div class="proj-card__image">
-              <svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="6" width="36" height="36" rx="4" />
-                <circle cx="16" cy="16" r="4" />
-                <path d="M42 32L32 22 8 42" />
-              </svg>
-              <span>Project Image</span>
+              <picture>
+                <source srcset="assets/img/multiagent_disp.webp" type="image/webp" />
+                <img src="assets/img/multiagent_disp.png" alt="Multiagent Hybrid Disaster Rescue Drones" loading="lazy"
+                  decoding="async" width="637" height="344" />
+              </picture>
               <div class="proj-card__image-hover">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -469,35 +474,36 @@
               at 8 m), GPS coordinate generation, and autonomous relief package delivery. Built on SIYI A8 Mini + OpenCV
               RTSP pipeline with MAVLink telemetry for real-time multi-UAV tracking.</p>
             <div class="proj-card__tags">
-              <span class="proj-card__tag">YOLOv8</span>
+              <span class="proj-card__tag">MavLink</span>
               <span class="proj-card__tag">OpenCV</span>
-              <span class="proj-card__tag">MAVLink</span>
+              <span class="proj-card__tag">GStreamer</span>
               <span class="proj-card__tag">ArduPilot</span>
               <span class="proj-card__tag">Python</span>
-              <span class="proj-card__tag">MAVSDK</span>
+              <span class="proj-card__tag">RTSP</span>
+              <span class="proj-card__tag">DroneKit</span>
+              <span class="proj-card__tag">YOLOv11n</span>
+
             </div>
             <div class="proj-card__links">
               <button type="button" class="proj-card__detail-btn" data-project="disaster-drones">Details &rarr;</button>
-              <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener">
+              <a href="https://github.com/HarshalKolhe02/Multiagent_Disaster_Rescue_Drones_NIDAR" target="_blank"
+                rel="noopener">
                 <svg viewBox="0 0 24 24" width="13" height="13">
                   <path
                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                 </svg>
                 GitHub &rarr;
               </a>
-              <a href="#publications" style="opacity:.6;">Publication &rarr;</a>
             </div>
           </article>
 
           <article class="proj-card reveal" data-cursor="hover" data-project="scan-spray">
             <div class="proj-card__image">
-              <svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="6" width="36" height="36" rx="4" />
-                <circle cx="16" cy="16" r="4" />
-                <path d="M42 32L32 22 8 42" />
-              </svg>
-              <span>Project Image</span>
+              <picture>
+                <source srcset="assets/img/scan_spray.webp" type="image/webp" />
+                <img src="assets/img/scan_spray.jpg" alt="Dual UAV Scan &amp; Spray Precision Agriculture"
+                  loading="lazy" decoding="async" width="1280" height="720" />
+              </picture>
               <div class="proj-card__image-hover">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -537,13 +543,11 @@
 
           <article class="proj-card reveal" data-cursor="hover" data-project="nav-assistant">
             <div class="proj-card__image">
-              <svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="6" width="36" height="36" rx="4" />
-                <circle cx="16" cy="16" r="4" />
-                <path d="M42 32L32 22 8 42" />
-              </svg>
-              <span>Project Image</span>
+              <picture>
+                <source srcset="assets/img/nav_assistant.webp" type="image/webp" />
+                <img src="assets/img/nav_assistant.jpg" alt="Context Aware Navigation Assistant Perception Pipeline"
+                  loading="lazy" decoding="async" width="1280" height="720" />
+              </picture>
               <div class="proj-card__image-hover">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -585,18 +589,15 @@
 
       <!-- Software & ML -->
       <div class="proj-cat">
-        <p class="subsec-label reveal">Software &amp; ML Systems</p>
         <div class="proj-cards">
 
           <article class="proj-card reveal" data-cursor="hover" data-project="careflow">
             <div class="proj-card__image">
-              <svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="6" width="36" height="36" rx="4" />
-                <circle cx="16" cy="16" r="4" />
-                <path d="M42 32L32 22 8 42" />
-              </svg>
-              <span>Project Image</span>
+              <picture>
+                <source srcset="assets/img/careflow.webp" type="image/webp" />
+                <img src="assets/img/careflow.jpg" alt="CareFlow Clinic Management System Dashboard" loading="lazy"
+                  decoding="async" width="1280" height="720" />
+              </picture>
               <div class="proj-card__image-hover">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -635,13 +636,11 @@
 
           <article class="proj-card reveal" data-cursor="hover" data-project="qr-checkin">
             <div class="proj-card__image">
-              <svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="6" width="36" height="36" rx="4" />
-                <circle cx="16" cy="16" r="4" />
-                <path d="M42 32L32 22 8 42" />
-              </svg>
-              <span>Project Image</span>
+              <picture>
+                <source srcset="assets/img/qr_checkin.webp" type="image/webp" />
+                <img src="assets/img/qr_checkin.jpg" alt="Real-Time QR Event Check-in Scanner System" loading="lazy"
+                  decoding="async" width="1280" height="720" />
+              </picture>
               <div class="proj-card__image-hover">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -680,13 +679,11 @@
 
           <article class="proj-card reveal" data-cursor="hover" data-project="autograde">
             <div class="proj-card__image">
-              <svg viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="6" width="36" height="36" rx="4" />
-                <circle cx="16" cy="16" r="4" />
-                <path d="M42 32L32 22 8 42" />
-              </svg>
-              <span>Project Image</span>
+              <picture>
+                <source srcset="assets/img/autograde.webp" type="image/webp" />
+                <img src="assets/img/autograde.jpg" alt="AutoGrade Intelligent Multimodal OCR Exam Evaluation"
+                  loading="lazy" decoding="async" width="1280" height="720" />
+              </picture>
               <div class="proj-card__image-hover">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -697,6 +694,7 @@
                 <span>View Details</span>
               </div>
             </div>
+
             <div class="proj-card__top">
               <h3 class="proj-card__title">AutoGrade &mdash; Intelligent Exam Evaluation System</h3>
             </div>
@@ -732,12 +730,75 @@
       <div class="section__head">
         <span class="section__index">04</span>
         <h2 class="section__title reveal">Publications</h2>
-        <p class="section__sub reveal">Peer-reviewed papers at IEEE BigData and ICAMMS on UAV autonomy, multi-agent
-          systems, and hybrid control.</p>
+        <p class="section__sub reveal">Research-driven work advancing autonomy, aerial systems, and intelligent
+          robotics.</p>
       </div>
 
       <ol class="pub-list">
 
+        <!-- 01 · 2026 -->
+        <li class="pub reveal" data-cursor="hover">
+          <div class="pub__year">2026</div>
+          <div class="pub__main">
+            <h3>ATLAS: A Cooperative Aerial System for Large-Scale Search and Delivery</h3>
+            <p class="pub__authors"><b>Harshal Kolhe</b>, Spruha Kshirsagar, Mrunmayee Limaye, Sanchet Dhalwar, Ishani
+              Khaty, Vishnu S, Ajinkya Baxy</p>
+            <p class="pub__venue">ASME International Mechanical Engineering Congress & Exposition India 2026</p>
+            <p class="pub__abs">A distributed fleet of aerial agents using shared communication meshes to dynamically
+              map and scan massive geographic areas. This is highly useful for search-and-rescue, disaster response, and
+              agricultural monitoring.</p>
+            <div class="pub__tags"><span>Multi-Drone Coordination</span><span>Aerial Human
+                Detection</span><span>Autonomous Aerial Systems</span><span>Coverage Path Planning</span></div>
+          </div>
+          <!-- <div class="pub__links">
+            <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener" data-cursor="hover">Details
+              &rarr;</a>
+          </div>-->
+        </li>
+
+        <!-- 02 · 2025 -->
+        <li class="pub reveal" data-cursor="hover">
+          <div class="pub__year">2026</div>
+          <div class="pub__main">
+            <h3>Hybrid Controller Development for a VTOL Using PID, LQR and MPC</h3>
+            <p class="pub__authors">R. Deshmukh, <b>H. Kolhe</b>, S. Biswas, and S. S. Chiddarwar</p>
+            <p class="pub__venue">International Conference on Advances in Mechanical and Manufacturing Systems (ICAMMS)
+              &middot; VNIT Nagpur, 2026</p>
+            <p class="pub__abs">Development and comparative evaluation of a hybrid controller combining PID, Linear
+              Quadratic Regulator (LQR), and Model Predictive Control (MPC) for stable transition-flight control of a
+              VTOL aircraft.</p>
+            <div class="pub__tags"><span>VTOL Transition</span><span>MPC, LQR ,and PID</span><span>Control
+                Systems</span><span>Hybrid Controller</span><span>ICAMMS</span></div>
+          </div>
+          <!---
+          <div class="pub__links">
+            <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener" data-cursor="hover">Details
+              &rarr;</a>
+          </div>
+          -->
+        </li>
+
+        <!-- 04 · 2024 (Placeholder) -->
+        <li class="pub reveal" data-cursor="hover">
+          <div class="pub__year">2026</div>
+          <div class="pub__main">
+            <h3>A Multi-Agent Drone System for Real-Time Victim Detection and Aid Delivery</h3>
+            <p class="pub__authors">S. Kshirsagar, <b>H. Kolhe</b>, R. Deshmukh, K. Ayush, S. Dhalwar, S. Biswas, M.
+              Limaye, and S. S. Chiddarwar
+            <p class="pub__venue">International Conference on Advances in Mechanical and Manufacturing Systems (ICAMMS)
+              · VNIT Nagpur, 2026</p>
+            <p class="pub__abs">Cooperative multi-UAV framework combining lawnmower-based area coverage, strip-stealing
+              coordination, RTK-based localization, and real-time YOLO-based victim detection for autonomous aid
+              delivery in disaster-response missions.</p>
+            <div class="pub__tags"><span>Multi-UAV</span><span>Disaster Response</span><span>UAV
+                Autonomy</span><span>Computer Vision</span><span>Computer Vision</span>RTK GPS</div>
+          </div>
+          <!--<div class="pub__links">
+            <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener" data-cursor="hover">Preprint
+              &rarr;</a>
+          </div>-->
+        </li>
+        <!-- 03 · 2025 -->
         <li class="pub reveal" data-cursor="hover">
           <div class="pub__year">2025</div>
           <div class="pub__main">
@@ -758,44 +819,7 @@
           </div>
         </li>
 
-        <li class="pub reveal" data-cursor="hover">
-          <div class="pub__year">2026</div>
-          <div class="pub__main">
-            <h3>A Multi-Agent Drone System for Real-Time Victim Detection and Aid Delivery</h3>
-            <p class="pub__authors">S. Kshirsagar, <b>H. Kolhe</b>, R. Deshmukh, K. Ayush, S. Dhalwar, S. Biswas, M.
-              Limaye, and S. S. Chiddarwar</p>
-            <p class="pub__venue">International Conference on Advances in Mechanical and Manufacturing Systems (ICAMMS)
-              &middot; VNIT Nagpur, 2026</p>
-            <p class="pub__abs">A coordinated two-drone system for disaster scenarios: one UAV executes a lawnmower
-              search pattern to detect victims via YOLO-based aerial imagery, while the second autonomously delivers
-              relief packages to localised GPS coordinates.</p>
-            <div class="pub__tags"><span>Multi-Agent UAV</span><span>Object Detection</span><span>Disaster
-                Robotics</span><span>ICAMMS</span></div>
-          </div>
-          <div class="pub__links">
-            <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener" data-cursor="hover">Details
-              &rarr;</a>
-          </div>
-        </li>
 
-        <li class="pub reveal" data-cursor="hover">
-          <div class="pub__year">2026</div>
-          <div class="pub__main">
-            <h3>Hybrid Controller Development for a VTOL Using PID, LQR and MPC</h3>
-            <p class="pub__authors">R. Deshmukh, <b>H. Kolhe</b>, S. Biswas, and S. S. Chiddarwar</p>
-            <p class="pub__venue">International Conference on Advances in Mechanical and Manufacturing Systems (ICAMMS)
-              &middot; VNIT Nagpur, 2026</p>
-            <p class="pub__abs">Development and comparative evaluation of a hybrid controller combining PID, Linear
-              Quadratic Regulator (LQR), and Model Predictive Control (MPC) for stable transition-flight control of a
-              VTOL aircraft.</p>
-            <div class="pub__tags"><span>VTOL</span><span>MPC / LQR / PID</span><span>Control
-                Systems</span><span>ICAMMS</span></div>
-          </div>
-          <div class="pub__links">
-            <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener" data-cursor="hover">Details
-              &rarr;</a>
-          </div>
-        </li>
 
       </ol>
     </section>

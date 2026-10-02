@@ -682,104 +682,104 @@
     }
   });
 
-/* =================================================================
-   Contact Form Handling
-   ================================================================= */
+  /* =================================================================
+     Contact Form Handling
+     ================================================================= */
 
-const contactForm = $('#contactForm');
-const cfStatus = $('#cfStatus');
+  const contactForm = $('#contactForm');
+  const cfStatus = $('#cfStatus');
 
-const CONTACT_WORKER_URL =
-  'https://portfolio-contact.harshalkolhe0203.workers.dev';
+  const CONTACT_WORKER_URL =
+    'https://portfolio-contact.harshalkolhe0203.workers.dev';
 
-if (contactForm) {
-  contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
+  if (contactForm) {
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
 
-    const fd = new FormData(contactForm);
+      const fd = new FormData(contactForm);
 
-    const name = (fd.get('name') || '').trim();
-    const email = (fd.get('email') || '').trim();
-    const message = (fd.get('message') || '').trim();
+      const name = (fd.get('name') || '').trim();
+      const email = (fd.get('email') || '').trim();
+      const message = (fd.get('message') || '').trim();
 
-    // Validation
-    if (!name || !email || !message) {
+      // Validation
+      if (!name || !email || !message) {
+        if (cfStatus) {
+          cfStatus.textContent = 'Please fill out all fields.';
+          cfStatus.className =
+            'contact-form__status contact-form__status--error';
+        }
+        return;
+      }
+
+      // Show sending state
       if (cfStatus) {
-        cfStatus.textContent = 'Please fill out all fields.';
+        cfStatus.textContent = 'Sending message...';
         cfStatus.className =
-          'contact-form__status contact-form__status--error';
-      }
-      return;
-    }
-
-    // Show sending state
-    if (cfStatus) {
-      cfStatus.textContent = 'Sending message...';
-      cfStatus.className =
-        'contact-form__status';
-    }
-
-    const submitButton =
-      contactForm.querySelector('.contact-form__submit');
-
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.style.opacity = '0.7';
-      submitButton.style.cursor = 'wait';
-    }
-
-    try {
-      const response = await fetch(CONTACT_WORKER_URL, {
-        method: 'POST',
-
-        headers: {
-          'Content-Type': 'application/json'
-        },
-
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message
-        })
-      });
-
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(
-          result.message || 'Failed to send message.'
-        );
+          'contact-form__status';
       }
 
-      // Success
-      if (cfStatus) {
-        cfStatus.textContent =
-          'Message sent successfully! I’ll get back to you soon.';
-        cfStatus.className =
-          'contact-form__status contact-form__status--success';
-      }
-
-      contactForm.reset();
-
-    } catch (error) {
-
-      console.error('Contact form error:', error);
-
-      if (cfStatus) {
-        cfStatus.textContent =
-          'Could not send your message. Please try again.';
-        cfStatus.className =
-          'contact-form__status contact-form__status--error';
-      }
-
-    } finally {
+      const submitButton =
+        contactForm.querySelector('.contact-form__submit');
 
       if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.style.opacity = '';
-        submitButton.style.cursor = '';
+        submitButton.disabled = true;
+        submitButton.style.opacity = '0.7';
+        submitButton.style.cursor = 'wait';
       }
-    }
-  });
-}
+
+      try {
+        const response = await fetch(CONTACT_WORKER_URL, {
+          method: 'POST',
+
+          headers: {
+            'Content-Type': 'application/json'
+          },
+
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(
+            result.message || 'Failed to send message.'
+          );
+        }
+
+        // Success
+        if (cfStatus) {
+          cfStatus.textContent =
+            'Thanks for reaching out! Looking forward to connecting with you.';
+          cfStatus.className =
+            'contact-form__status contact-form__status--success';
+        }
+
+        contactForm.reset();
+
+      } catch (error) {
+
+        console.error('Contact form error:', error);
+
+        if (cfStatus) {
+          cfStatus.textContent =
+            'Could not send your message. Please try again.';
+          cfStatus.className =
+            'contact-form__status contact-form__status--error';
+        }
+
+      } finally {
+
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.style.opacity = '';
+          submitButton.style.cursor = '';
+        }
+      }
+    });
+  }
 })();

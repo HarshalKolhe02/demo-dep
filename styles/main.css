@@ -2217,36 +2217,24 @@ body.nav-open {
    TECHNICAL ARSENAL — Domain Cards
    ========================================================= */
 
-/* ── Grid: 6-col system
-   Row 1: hero (1–6)
-   Row 2: primary 02 (1–4) + primary 03 (4–7) = each 3 cols
-   Row 3: compact 04 (1–3) + 05 (3–5) + 06 (5–7) = each 2 cols
- ── */
+/* ── Grid: 5-card 2-row layout (Row 1: 3 cards, Row 2: 2 cards) ── */
 .arsenal__grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
-/* Card 01 hero — full width */
-.arsenal__card--hero {
-  grid-column: 1 / -1;
-}
-
-/* Cards 02 & 03 — 3 cols each */
-#arsenal-control {
-  grid-column: span 3;
-}
-
+/* Row 1 — 3 equal cards (each spans 2 of 6 columns) */
+#arsenal-uav,
+#arsenal-control,
 #arsenal-fab {
-  grid-column: span 3;
+  grid-column: span 2;
 }
 
-/* Cards 04, 05, 06 — 2 cols each */
+/* Row 2 — 2 equal cards (each spans 3 of 6 columns) */
 #arsenal-cv,
-#arsenal-embedded,
-#arsenal-software {
-  grid-column: span 2;
+#arsenal-embedded {
+  grid-column: span 3;
 }
 
 
@@ -2291,7 +2279,7 @@ body.nav-open {
 .arsenal__card--hero {
   background: color-mix(in srgb, var(--surface) 100%, var(--accent) 0%);
   border-color: color-mix(in srgb, var(--accent) 20%, var(--line));
-  padding: 32px 32px 28px;
+  padding: 26px 26px 24px;
 }
 
 /* Subtle radial glow behind hero card */
@@ -2309,20 +2297,9 @@ body.nav-open {
   z-index: 1;
 }
 
-/* ── Primary cards (02 & 03) span 1.5 cols each ── */
+/* ── Primary cards (02 & 03) ── */
 .arsenal__card--primary {
-  grid-column: span 1;
-  /* In the 3-col grid, cards 02 & 03 should together fill 2 cols for equal sizing */
-}
-
-/* Cards 02 & 03 occupy 2 cols together in 3-col grid */
-/* We use: 02 = col 1-2, 03 = col 2-3 using a specific approach:
-   Since we have 3 cols and want 02 and 03 each to be wider than 04/05/06,
-   we make 02 & 03 span 3/2 width. Grid trick: place them in a sub-row with 2-col setup */
-/* Simpler: use a 2-col subgrid wrapper or just accept 1-col each in 3-col grid
-   but give them visual emphasis via padding/height */
-.arsenal__card--primary {
-  padding: 28px 26px 24px;
+  padding: 26px 26px 24px;
 }
 
 /* ── Fabrication card (03) — subtle engineering texture ── */
@@ -2383,10 +2360,6 @@ body.nav-open {
   letter-spacing: -.2px;
   line-height: 1.2;
   color: var(--text);
-}
-
-.arsenal__card--hero .arsenal__card-title {
-  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
 }
 
 .arsenal__card-desc {
@@ -2653,21 +2626,21 @@ body.nav-open {
 
 /* ── Responsive ── */
 
-/* Tablet (≤1024px): 2-col grid — hero full, primaries each 1 col, compacts each 1 col */
+/* Tablet (≤1024px): 2-col grid */
 @media (max-width: 1024px) {
   .arsenal__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
 
-  .arsenal__card--hero {
+  #arsenal-uav {
     grid-column: 1 / -1;
   }
 
   #arsenal-control,
   #arsenal-fab,
   #arsenal-cv,
-  #arsenal-embedded,
-  #arsenal-software {
+  #arsenal-embedded {
     grid-column: span 1;
   }
 }
@@ -2676,19 +2649,15 @@ body.nav-open {
 @media (max-width: 640px) {
   .arsenal__grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .arsenal__card--hero,
+  #arsenal-uav,
   #arsenal-control,
   #arsenal-fab,
   #arsenal-cv,
-  #arsenal-embedded,
-  #arsenal-software {
+  #arsenal-embedded {
     grid-column: 1;
-  }
-
-  .arsenal__card--hero .arsenal__card-title {
-    font-size: 1.1rem;
   }
 
   .arsenal__stack-flow {
@@ -3976,6 +3945,45 @@ body.nav-open {
   font-size: .9rem;
   line-height: 1.68;
   margin-bottom: 12px;
+}
+
+/* Architecture Image Container */
+.proj-modal__arch-img-wrap {
+  margin: 16px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  background: var(--surface-2);
+  display: none;
+}
+
+.proj-modal__arch-img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  display: block;
+  background: rgba(0, 0, 0, 0.25);
+  transition: transform .3s ease;
+}
+
+.proj-modal__arch-caption {
+  display: block;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  background: rgba(0, 0, 0, 0.15);
+  border-top: 1px solid var(--line-2);
+  text-align: center;
+}
+
+[data-theme="light"] .proj-modal__arch-img {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .proj-modal__arch-caption {
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .proj-modal__highlights {

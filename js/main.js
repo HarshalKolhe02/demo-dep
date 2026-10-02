@@ -290,29 +290,30 @@
       subtitle: 'Multi-agent coordination, spatial exploration, and target localization.',
       badges: [
         { label: 'Research', type: 'research' },
-        { label: 'Publication', type: 'publication' },
-        { label: 'Open Source', type: 'code' },
-        { label: 'May 2024 - Present', type: 'date' }
+        { label: 'Jul 2025 - Jan 2026 ', type: 'date' }
       ],
-      role: 'Lead Systems Researcher',
+      role: 'Team Captain',
       status: 'Active Research',
-      impact: 'Swarm located targets in under 4 minutes across a 100m² grid in physical hardware testing.',
+      impact: 'Detected 10 humans and simultaneously deployed 10 packages in 6.2 minutes, reducing mission time by 38% compared with a single-UAV system.',
       problem: 'In disaster areas, human rescue is bottlenecked by search times and hazardous environments. Single drones have limited battery and search area coverage, requiring a coordinated multi-agent system that functions without a single point of failure.',
-      solution: 'Engineered a decentralized multi-UAV system where drones coordinate search grids using velocity obstacles for collision avoidance, and run on-board deep-learning localization models to detect survivors.',
-      challenges: 'Eliminating dependency on constant global server communication. Solved by writing an on-board relative coordination node using MAVLink messages that runs asynchronously on the flight stack.',
+      solution: 'Engineered a multi-UAV system where drones coordinate search in strips, and run on-board deep-learning models to detect survivors and deliver relief packages; while maintaining inter-drone communication using MAVLink messages.',
+      challenges: 'Decentralized multi-UAV coordination under limited communication. Eliminated dependence on a ground station by implementing lightweight peer-to-peer MAVLink telemetry for sharing UAV state, mission progress, survivor locations, and workload updates, with event-based synchronization, heartbeats, and ACK-based retransmission',
       architecture: 'Decentralized swarm network: SIYI A8 Mini gimbaled RTSP camera streams directly into an edge inference node running TensorRT YOLOv8, synchronizing localized GPS telemetry across UAV peers via MAVSDK and ArduPilot.',
-      insights: 'Decentralized control requires robust local estimators. Simple velocity obstacles scale better than complex global optimization under packet loss constraints.',
+      archImage: 'assets/img/magentsys_archi.webp',
+      archImageCaption: 'System Overview: Multi-UAV telemetry & vision pipeline',
+      insights: 'Effective multi-UAV coordination requires reliable communication and adaptive workload management. Event-based telemetry and dynamic strip sharing allow UAVs to redistribute unfinished search areas and maintain efficient coverage throughout the mission.',
       highlights: [
-        'Automated lawnmower search pattern navigation coordinated via MAVSDK and ArduPilot flight stack.',
-        'Fine-tuned YOLOv8 model delivering 90% human detection accuracy at 8 m altitude under variable outdoor conditions.',
+        'Automated lawnmower search pattern navigation coordinated via MAVLink and ArduPilot.',
+        'Fine-tuned YOLOv11n model delivering 90% human detection accuracy at 8 m altitude under variable outdoor conditions.',
         'RTSP video pipeline processing high-definition streams from a SIYI A8 Mini gimbaled sensor.',
-        'Autonomous release mechanism delivering life-saving medical supplies directly to detected GPS coordinates.'
+        'Autonomous Multi-Level release mechanism delivering life-saving medical supplies directly to detected GPS coordinates.',
+        'A Inter-UAV Communication pipeline to for load balancing and target sharing among drones.'
       ],
-      tags: ['ROS', 'MAVSDK', 'ArduPilot', 'YOLOv8', 'OpenCV', 'MAVLink', 'Python', 'C++'],
+      tags: ['MAVLink', 'DroneKit', 'ArduPilot', 'YOLOv11n', 'OpenCV', 'RTSP Streaming', 'Python', 'C++'],
       links: [
-        { label: 'GitHub Code', url: 'https://github.com/HarshalKolhe02', type: 'github' },
-        { label: 'Research Preprint', url: '#publications', type: 'paper' },
-        { label: 'Watch Demo Video', url: 'https://github.com/HarshalKolhe02', type: 'demo' }
+        { label: 'GitHub Code', url: 'https://github.com/HarshalKolhe02/Multiagent_Disaster_Rescue_Drones_NIDAR', type: 'github' },
+        //{ label: 'Research Preprint', url: '#publications', type: 'paper' },
+        //{ label: 'Watch Demo Video', url: 'https://github.com/HarshalKolhe02/Multiagent_Disaster_Rescue_Drones_NIDAR', type: 'demo' }
       ]
     },
     'scan-spray': {
@@ -329,7 +330,9 @@
       problem: 'Indiscriminate chemical spraying in large-scale agriculture wastes costly pesticides, accelerates groundwater contamination, and fails to catch early crop blights before full-field contagion.',
       solution: 'Engineered a cooperative two-tier drone system: a lightweight reconnaissance drone maps crop disease via multi-spectral computer vision, dispatching a heavy-lift quadrotor for micro-targeted chemical spraying.',
       challenges: 'High-frequency structural vibration from heavy-lift motors inducing IMU drift and camera blur; resolved via tuned silicone vibration isolation mounts and sensor fusion filtering.',
-      architecture: 'Raspberry Pi companion computer running OpenCV HSV disease detection pipelines, communicating over MAVLink to ArduPilot, driving PWM high-pressure diaphragm spray nozzles.',
+      architecture: 'Cooperative dual-tier UAV network: Lightweight reconnaissance drone executes OpenCV HSV disease detection pipelines on a Raspberry Pi companion computer, relaying localized spray target coordinates over MAVLink telemetry to an ArduPilot heavy-lift quadrotor driving PWM-throttled high-pressure diaphragm spray nozzles.',
+      archImage: 'assets/img/scan_spray.webp',
+      archImageCaption: 'System Overview: Dual-UAV reconnaissance & targeted micro-spraying architecture',
       insights: 'Decoupling scanning from heavy spraying extends battery lifecycle by 3x compared to all-in-one spray drones carrying heavy fluid continuously.',
       highlights: [
         'Real-time crop disease detection using HSV segmentation and dual-mask thresholding (70% accuracy at 6 m altitude).',
@@ -358,7 +361,9 @@
       problem: 'Mobile robots navigating crowded environments often collide with dynamic obstacles because traditional static 2D occupancy grids cannot anticipate the motion vectors of moving humans and vehicles.',
       solution: 'Built an end-to-end perception pipeline that identifies dynamic objects, predicts their instantaneous velocity vectors and time-to-collision, and issues proactive steering directives.',
       challenges: 'Camera ego-motion during rapid turns creating false motion vectors; overcome by subtracting robot IMU odometry from detected optical flow fields.',
-      architecture: 'TensorRT-optimized YOLOv8 model running on an embedded Jetson board, streaming bounding boxes into a SORT Kalman tracker and a rule-based collision risk state machine.',
+      architecture: 'Edge perception & spatial reasoning stack: TensorRT-optimized YOLOv8 model running on an embedded Jetson board, streaming bounding boxes into a SORT Kalman tracker and optical flow motion vector analyzer to feed a dynamic collision risk state machine.',
+      archImage: 'assets/img/nav_assistant.webp',
+      archImageCaption: 'Perception Pipeline: Real-time object tracking, motion vectors & dynamic collision risk assessment',
       insights: 'Bounding-box trajectory prediction cones are computationally lighter than dense optical flow while delivering identical avoidance lead times.',
       highlights: [
         'YOLOv8 + OpenCV perception pipeline detecting vehicles, pedestrians, and traffic signals (75% accuracy, 90% precision).',
@@ -386,7 +391,9 @@
       problem: 'Outpatient clinics struggle with fragmented record-keeping, double-booked appointments, and manual billing reconciliation that consumes administrative hours and leaks revenue.',
       solution: 'Architected a modular FastAPI enterprise clinic platform backed by Oracle SQL with automated PL/SQL database triggers for seamless audit logging and fee computation.',
       challenges: 'Preventing concurrent double-booking of doctor slots during peak hours; solved using row-level database locks and atomic transaction isolation.',
-      architecture: 'Containerized FastAPI backend across 5 decoupled domain modules, interfacing with an Oracle 19c database with automated triggers and materialized analytical views.',
+      architecture: 'Three-tier decoupled enterprise architecture: Containerized FastAPI REST backend partitioned across 5 decoupled domain microservices, interfacing with an Oracle 19c relational database equipped with automated PL/SQL database triggers and materialized analytical views.',
+      archImage: 'assets/img/careflow.webp',
+      archImageCaption: 'System Architecture: Modular FastAPI backend, real-time analytics & automated Oracle PL/SQL triggers',
       insights: 'Pushing financial calculations directly into PL/SQL triggers eliminated backend network hops and guaranteed non-repudiation in audit records.',
       highlights: [
         '38 REST API endpoints built with FastAPI across 5 decoupled modules (patients, doctors, appointments, billing, analytics).',
@@ -413,7 +420,9 @@
       problem: 'High-volume college events encounter severe admission bottlenecks and ticket passback abuse when paper tickets or disconnected scanners are used.',
       solution: 'Developed a high-throughput WebSocket check-in platform featuring HMAC-signed dynamic QR codes and instantaneous bi-directional state synchronization.',
       challenges: 'Transient mobile network drops at gate entrance; solved with an offline client-side sync queue backed by IndexedDB with deterministic reconciliation.',
-      architecture: 'Node.js/Express server broadcasting real-time check-in events over Socket.IO to connected scanning tablets, persisting records in MongoDB with JWT role authorization.',
+      architecture: 'Event-driven WebSocket client-server architecture: Node.js/Express server broadcasting real-time check-in events over Socket.IO to connected gate scanning clients, validating HMAC dynamic tokens and persisting attendance records in MongoDB with JWT role authorization.',
+      archImage: 'assets/img/qr_checkin.webp',
+      archImageCaption: 'Event Admission Architecture: Sub-50ms Socket.IO WebSocket synchronization & cryptographic QR verification',
       insights: 'Edge verification of cryptographically signed QR payloads reduces gate latency to under 30ms even under heavy network load.',
       highlights: [
         '7 RESTful API endpoints handling admission validation, attendee statuses, and credential issuance.',
@@ -441,7 +450,9 @@
       problem: 'Grading thousands of handwritten technical exam scripts is extraordinarily tedious, subject to subjective grader fatigue, and delays feedback to students for weeks.',
       solution: 'Engineered an optical-to-semantic evaluation system that deskews paper scans, segments question bounding boxes, and scores student answers against rubrics with LLM vision models.',
       challenges: 'Irregular handwriting, cursive slopes, and ink bleed-through; tackled using adaptive Otsu thresholding and an ensemble of PaddleOCR and Pixtral Large.',
-      architecture: 'OpenCV image deskewing and line segmentation pipeline feeding segmented image crops into Pixtral Large multimodal LLM for semantic rubric grading and score generation.',
+      architecture: 'Multimodal Document AI pipeline: OpenCV image deskewing and adaptive line segmentation pipeline feeding segmented question crops into Pixtral Large multimodal LLM for semantic rubric grading, score generation, and automated feedback logging.',
+      archImage: 'assets/img/autograde.webp',
+      archImageCaption: 'Evaluation Pipeline: Multimodal OCR segmentation, rubric evaluation & Pixtral LLM scoring',
       insights: 'Prompting vision LLMs with structured step-by-step scoring criteria dramatically improves rubric alignment over direct score estimation.',
       highlights: [
         'Multimodal OCR pipeline combining Pixtral Large vision-language model, PaddleOCR, and EasyOCR.',
@@ -468,7 +479,9 @@
   const modalSolution = $('#projModalSolution');
   const modalHighlights = $('#projModalHighlights');
   const modalChallenges = $('#projModalChallenges');
-  const modalArchitecture = $('#projModalArchitecture');
+  const modalArchImgWrap = $('#projModalArchImgWrap');
+  const modalArchImg = $('#projModalArchImg');
+  const modalArchCaption = $('#projModalArchCaption');
   const modalInsights = $('#projModalInsights');
   const modalTags = $('#projModalTags');
   const modalActions = $('#projModalActions');
@@ -532,8 +545,26 @@
     }
 
     if (modalChallenges) modalChallenges.textContent = data.challenges || '';
-    if (modalArchitecture) modalArchitecture.textContent = data.architecture || '';
     if (modalInsights) modalInsights.textContent = data.insights || '';
+
+    if (modalArchImgWrap && modalArchImg) {
+      if (data.archImage) {
+        modalArchImg.src = data.archImage;
+        modalArchImg.alt = data.archImageCaption || `${data.title} Architecture Diagram`;
+        if (modalArchCaption) {
+          if (data.archImageCaption) {
+            modalArchCaption.textContent = data.archImageCaption;
+            modalArchCaption.style.display = 'block';
+          } else {
+            modalArchCaption.style.display = 'none';
+          }
+        }
+        modalArchImgWrap.style.display = 'block';
+      } else {
+        modalArchImgWrap.style.display = 'none';
+        modalArchImg.src = '';
+      }
+    }
 
     if (modalTags) {
       modalTags.innerHTML = (data.tags || [])

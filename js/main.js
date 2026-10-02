@@ -407,52 +407,63 @@
       ]
     },
     'qr-checkin': {
-      title: 'Real-Time QR Event Check-in System',
-      subtitle: 'Sub-50ms synchronized admission verification and attendee management platform.',
+      title: 'Context-Aware Navigation Assistant',
+      subtitle: 'A Python-based navigation assistant.',
       badges: [
-        { label: 'Full-Stack', type: 'code' },
-        { label: 'WebSockets', type: 'tech' },
-        { label: '2023', type: 'date' }
+        { label: 'Computer Vision', type: 'code' },
+        { label: 'Distance Estimation', type: 'tech' },
+        { label: 'Rule-based Decision Engine', type: 'tech' },
       ],
       role: 'Full-Stack Developer',
-      status: 'Deployed (Live Events)',
-      impact: 'Verified 1,200+ event attendees across 6 concurrent scanners with zero ticket duplicate entries.',
-      problem: 'High-volume college events encounter severe admission bottlenecks and ticket passback abuse when paper tickets or disconnected scanners are used.',
-      solution: 'Developed a high-throughput WebSocket check-in platform featuring HMAC-signed dynamic QR codes and instantaneous bi-directional state synchronization.',
-      challenges: 'Transient mobile network drops at gate entrance; solved with an offline client-side sync queue backed by IndexedDB with deterministic reconciliation.',
-      architecture: 'Event-driven WebSocket client-server architecture: Node.js/Express server broadcasting real-time check-in events over Socket.IO to connected gate scanning clients, validating HMAC dynamic tokens and persisting attendance records in MongoDB with JWT role authorization.',
-      archImage: 'assets/img/qr_checkin.webp',
-      archImageCaption: 'Event Admission Architecture: Sub-50ms Socket.IO WebSocket synchronization & cryptographic QR verification',
-      insights: 'Edge verification of cryptographically signed QR payloads reduces gate latency to under 30ms even under heavy network load.',
+      status: 'Completed',
+      impact: 'Evaluated across 9 street scenes with 83 detected objects, triggering safety stops in all 3 critical collision scenarios. The system also identified safe left-turn corridors in 4 scenes and safe right-turn corridors in 6 scenes.',
+      problem: 'Traditional object detection identifies obstacles but does not understand their distance, position, or impact on the vehicle\'s immediate path. The project addresses this gap by adding spatial and contextual reasoning to real-time road perception.',
+      solution: 'Built a context-aware navigation assistant combining YOLOv8 detection, monocular distance estimation, five-zone corridor analysis, and a rule-based decision engine. The system evaluates obstacles and turn clearance to generate navigation actions through a visual HUD and voice guidance.',
+      challenges: 'Monocular distance estimation and spatial ambiguity; addressed through pinhole-based depth estimation and five-zone corridor analysis for context-aware navigation decisions..',
+      architecture: 'Real-time computer vision pipeline processing video frames through YOLOv8 detection, depth estimation, corridor-based spatial reasoning, and rule-based navigation logic.',
+      archImage: 'assets/img/ca-archi.webp',
+      archImageCaption: 'System Architecture of the Context-Aware Navigation Assistant',
+      insights: 'Combined object class, distance, lateral position, vehicle speed, and path clearance rather than relying on detection alone. Implemented interpretable navigation states such as EMERGENCY_STOP, YIELD, SLOW_DOWN, and PROCEED',
       highlights: [
-        '7 RESTful API endpoints handling admission validation, attendee statuses, and credential issuance.',
-        'Cryptographically secure UUID and dynamic QR code generation with automated SMTP ticket delivery.',
-        'Live bidirectional state synchronization across 6 connected devices using Socket.IO WebSockets.',
-        'Role-based access control (RBAC) with secure JWT tokens and MongoDB persistence.'
+
+        'YOLOv8-based real-time object detection for vehicles, pedestrians, traffic lights, and road signs.',
+
+        'Monocular distance estimation using bounding-box geometry and perspective-based corrections.',
+
+        'Five-zone spatial corridor analysis for obstacle positioning, path clearance, and turn evaluation.',
+
+        'Rule-based navigation engine combining object priority, distance, vehicle speed, and spatial context.'
+
       ],
-      tags: ['Node.js', 'Express', 'MongoDB', 'Socket.IO', 'JWT', 'QR Generation', 'WebSockets'],
+      tags: [
+        'Python',
+        'YOLOv8',
+        'OpenCV',
+        'Computer Vision',
+        'Text-to-Speech',
+      ],
       links: [
-        { label: 'GitHub Code', url: 'https://github.com/HarshalKolhe02', type: 'github' },
-        { label: 'Live Demo', url: 'https://github.com/HarshalKolhe02', type: 'demo' }
+        { label: 'GitHub ', url: 'https://github.com/HarshalKolhe02/Context-Aware-Navigation-Assistant', type: 'github' },
+        //{ label: 'Live Demo', url: 'https://github.com/HarshalKolhe02', type: 'demo' }
       ]
     },
     'fixed-wing-uav': {
       title: 'Design and Development of Fixed-Wing UAV',
-      subtitle: 'Aerodynamic modeling, CAD airframe design, structural fabrication, and flight validation of an electric trainer UAV.',
+      subtitle: 'From Aerodynamic Design to Flight-Ready Aircraft.',
       badges: [
-        { label: 'Aerodynamics & CAD', type: 'tech' },
-        { label: 'UAV Airframe Design', type: 'code' },
-        { label: 'IvLabs, VNIT Nagpur', type: 'research' }
+        { label: 'CAD', type: 'tech' },
+        { label: 'Airframe Design', type: 'code' },
+        { label: 'Fabrication', type: 'research' }
       ],
       role: 'Lead Aerodynamics & Airframe Design Engineer',
       status: 'CAD Validated & Flight Verified',
       impact: 'Engineered a 1.25 m wingspan trainer aircraft achieving a 1.35 kg all-up weight (14.5% below estimate) with stable glide slope and proven real-world takeoff and flight dynamics.',
       problem: 'Developing a stable, low-cost fixed-wing research platform requires balancing aerodynamic efficiency (sufficient lift at low angles of attack) with structural rigidity, reliable control authority, and forgiving stall characteristics for pilot training.',
-      solution: 'Executed an end-to-end aeronautical design workflow: conducted airfoil aerodynamic polar analysis in XFLR5 to select the cambered NACA 2412 profile, calculated optimal wing loading (Aspect Ratio 5, 1.25 m span, 25 cm chord), built full SolidWorks CAD assemblies, and fabricated the airframe using hot-wire cut styrofoam wings, carbon fiber spar reinforcement, foam fuselage, and 3D-printed modular mounts.',
+      solution: 'Developed a lightweight fixed-wing UAV by combining aerodynamic airfoil selection, calculated wing sizing, CoG adjustment, CAD-based design, and foam-based fabrication to achieve a stable and manufacturable aircraft.',
       challenges: 'Achieving longitudinal static stability and smooth takeoff rotation with manual weight balancing; resolved by calculating aerodynamic center (MAC/4), shifting battery ballast to lock the Center of Gravity (CoG) within safe static margins, and designing a custom taildragger landing gear geometry providing the optimal ground incidence angle of attack for roll-out.',
       architecture: 'Aero-structural design & propulsion architecture: High-wing tractor configuration featuring a 1.25 m NACA 2412 wing (S=3125 cm²), reinforced with internal carbon fiber spar tubes. A 0.5 Thrust-to-Weight brushless motor propulsion system is paired with independent micro-servos for ailerons, elevator, and rudder surfaces. 3D-printed PLA motor bulkheads and taildragger landing gear struts absorb landing shock while maintaining precise thrust-line alignment.',
-      archImage: 'assets/img/fixed_wing_archi.webp',
-      archImageCaption: 'XFLR5 Aerodynamic Polar Simulation & Airfoil Lift/Drag Performance Curves for NACA 2412',
+      archImage: 'assets/img/fw-archi.webp',
+      archImageCaption: 'Fixed-Wing UAV System Architecture',
       insights: 'Rigorous computational airfoil analysis in XFLR5 combined with precision CoG calibration ensures docile handling qualities, while composite carbon-rod wing reinforcement prevents torsional flutter without adding excessive airframe weight.',
       highlights: [
         'Conducted aerodynamic analysis in XFLR5, selecting NACA 2412 (4% camber) achieving Cl=1 at 4°–5° AoA.',
@@ -461,9 +472,9 @@
         'Fabricated airframe with hot-wire cut high-density styrofoam wings, continuous carbon fiber structural spars, and custom 3D-printed mounts.',
         'Configured a 0.5 Thrust-to-Weight electric powertrain with calibrated CoG (MAC/4) and taildragger landing gear, verified in successful outdoor test flights.'
       ],
-      tags: ['Fixed-Wing UAV', 'XFLR5', 'SolidWorks CAD', 'Aerodynamics', 'NACA 2412', 'Airframe Fabrication', 'Carbon Fiber', 'Flight Testing'],
+      tags: ['Fixed-Wing UAV', 'XFLR5', 'SolidWorks CAD', 'Aerodynamics', 'NACA 2412', 'Airframe Fabrication', 'Flight Testing'],
       links: [
-        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02/Design-and-Development-of-Fixed-Wing-UAV', type: 'github' }
+        { label: 'GitHub', url: 'https://github.com/HarshalKolhe02/Design-and-Development-of-Fixed-Wing-UAV', type: 'github' }
       ]
     }
   };
@@ -671,36 +682,104 @@
     }
   });
 
-  /* =================================================================
-     Contact Form Handling
-     ================================================================= */
-  const contactForm = $('#contactForm');
-  const cfStatus = $('#cfStatus');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const fd = new FormData(contactForm);
-      const name = (fd.get('name') || '').trim();
-      const email = (fd.get('email') || '').trim();
-      const message = (fd.get('message') || '').trim();
+/* =================================================================
+   Contact Form Handling
+   ================================================================= */
 
-      if (!name || !email || !message) {
-        if (cfStatus) {
-          cfStatus.textContent = 'Please fill out all fields.';
-          cfStatus.className = 'contact-form__status contact-form__status--error';
-        }
-        return;
+const contactForm = $('#contactForm');
+const cfStatus = $('#cfStatus');
+
+const CONTACT_WORKER_URL =
+  'https://portfolio-contact.harshalkolhe0203.workers.dev';
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const fd = new FormData(contactForm);
+
+    const name = (fd.get('name') || '').trim();
+    const email = (fd.get('email') || '').trim();
+    const message = (fd.get('message') || '').trim();
+
+    // Validation
+    if (!name || !email || !message) {
+      if (cfStatus) {
+        cfStatus.textContent = 'Please fill out all fields.';
+        cfStatus.className =
+          'contact-form__status contact-form__status--error';
+      }
+      return;
+    }
+
+    // Show sending state
+    if (cfStatus) {
+      cfStatus.textContent = 'Sending message...';
+      cfStatus.className =
+        'contact-form__status';
+    }
+
+    const submitButton =
+      contactForm.querySelector('.contact-form__submit');
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.style.opacity = '0.7';
+      submitButton.style.cursor = 'wait';
+    }
+
+    try {
+      const response = await fetch(CONTACT_WORKER_URL, {
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message
+        })
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message || 'Failed to send message.'
+        );
       }
 
-      const subject = encodeURIComponent(`Portfolio Message from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-      window.location.href = `mailto:harshalkolhe03@gmail.com?subject=${subject}&body=${body}`;
+      // Success
+      if (cfStatus) {
+        cfStatus.textContent =
+          'Message sent successfully! I’ll get back to you soon.';
+        cfStatus.className =
+          'contact-form__status contact-form__status--success';
+      }
+
+      contactForm.reset();
+
+    } catch (error) {
+
+      console.error('Contact form error:', error);
 
       if (cfStatus) {
-        cfStatus.textContent = 'Thank you! Your email client has been opened to send your message.';
-        cfStatus.className = 'contact-form__status contact-form__status--success';
+        cfStatus.textContent =
+          'Could not send your message. Please try again.';
+        cfStatus.className =
+          'contact-form__status contact-form__status--error';
       }
-      contactForm.reset();
-    });
-  }
+
+    } finally {
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.style.opacity = '';
+        submitButton.style.cursor = '';
+      }
+    }
+  });
+}
 })();

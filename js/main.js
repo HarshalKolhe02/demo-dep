@@ -436,33 +436,34 @@
         { label: 'Live Demo', url: 'https://github.com/HarshalKolhe02', type: 'demo' }
       ]
     },
-    'autograde': {
-      title: 'AutoGrade — Intelligent Exam Evaluation System',
-      subtitle: 'Multimodal OCR and semantic evaluation platform for handwritten examination grading.',
+    'fixed-wing-uav': {
+      title: 'Design and Development of Fixed-Wing UAV',
+      subtitle: 'Aerodynamic modeling, CAD airframe design, structural fabrication, and flight validation of an electric trainer UAV.',
       badges: [
-        { label: 'AI & Machine Learning', type: 'research' },
-        { label: 'Document AI', type: 'tech' },
-        { label: '2024', type: 'date' }
+        { label: 'Aerodynamics & CAD', type: 'tech' },
+        { label: 'UAV Airframe Design', type: 'code' },
+        { label: 'IvLabs, VNIT Nagpur', type: 'research' }
       ],
-      role: 'ML & OCR Engineer',
-      status: 'Benchmark Validated',
-      impact: 'Evaluated 4,200+ student responses, reducing faculty grading turnaround time by 80%.',
-      problem: 'Grading thousands of handwritten technical exam scripts is extraordinarily tedious, subject to subjective grader fatigue, and delays feedback to students for weeks.',
-      solution: 'Engineered an optical-to-semantic evaluation system that deskews paper scans, segments question bounding boxes, and scores student answers against rubrics with LLM vision models.',
-      challenges: 'Irregular handwriting, cursive slopes, and ink bleed-through; tackled using adaptive Otsu thresholding and an ensemble of PaddleOCR and Pixtral Large.',
-      architecture: 'Multimodal Document AI pipeline: OpenCV image deskewing and adaptive line segmentation pipeline feeding segmented question crops into Pixtral Large multimodal LLM for semantic rubric grading, score generation, and automated feedback logging.',
-      archImage: 'assets/img/autograde.webp',
-      archImageCaption: 'Evaluation Pipeline: Multimodal OCR segmentation, rubric evaluation & Pixtral LLM scoring',
-      insights: 'Prompting vision LLMs with structured step-by-step scoring criteria dramatically improves rubric alignment over direct score estimation.',
+      role: 'Lead Aerodynamics & Airframe Design Engineer',
+      status: 'CAD Validated & Flight Verified',
+      impact: 'Engineered a 1.25 m wingspan trainer aircraft achieving a 1.35 kg all-up weight (14.5% below estimate) with stable glide slope and proven real-world takeoff and flight dynamics.',
+      problem: 'Developing a stable, low-cost fixed-wing research platform requires balancing aerodynamic efficiency (sufficient lift at low angles of attack) with structural rigidity, reliable control authority, and forgiving stall characteristics for pilot training.',
+      solution: 'Executed an end-to-end aeronautical design workflow: conducted airfoil aerodynamic polar analysis in XFLR5 to select the cambered NACA 2412 profile, calculated optimal wing loading (Aspect Ratio 5, 1.25 m span, 25 cm chord), built full SolidWorks CAD assemblies, and fabricated the airframe using hot-wire cut styrofoam wings, carbon fiber spar reinforcement, foam fuselage, and 3D-printed modular mounts.',
+      challenges: 'Achieving longitudinal static stability and smooth takeoff rotation with manual weight balancing; resolved by calculating aerodynamic center (MAC/4), shifting battery ballast to lock the Center of Gravity (CoG) within safe static margins, and designing a custom taildragger landing gear geometry providing the optimal ground incidence angle of attack for roll-out.',
+      architecture: 'Aero-structural design & propulsion architecture: High-wing tractor configuration featuring a 1.25 m NACA 2412 wing (S=3125 cm²), reinforced with internal carbon fiber spar tubes. A 0.5 Thrust-to-Weight brushless motor propulsion system is paired with independent micro-servos for ailerons, elevator, and rudder surfaces. 3D-printed PLA motor bulkheads and taildragger landing gear struts absorb landing shock while maintaining precise thrust-line alignment.',
+      archImage: 'assets/img/fixed_wing_archi.webp',
+      archImageCaption: 'XFLR5 Aerodynamic Polar Simulation & Airfoil Lift/Drag Performance Curves for NACA 2412',
+      insights: 'Rigorous computational airfoil analysis in XFLR5 combined with precision CoG calibration ensures docile handling qualities, while composite carbon-rod wing reinforcement prevents torsional flutter without adding excessive airframe weight.',
       highlights: [
-        'Multimodal OCR pipeline combining Pixtral Large vision-language model, PaddleOCR, and EasyOCR.',
-        'Automated handwriting skew correction, line segmentation, and question bounding-box detection.',
-        'Evaluated 4,274 student responses against standardized rubrics with semantic keyword scoring.',
-        'Decreased faculty grading turnaround time by 80% while providing audit trails.'
+        'Conducted aerodynamic analysis in XFLR5, selecting NACA 2412 (4% camber) achieving Cl=1 at 4°–5° AoA.',
+        'Engineered 1.25 m wingspan with Aspect Ratio 5, 25 cm chord, and 3125 cm² wing area for docile trainer flight characteristics.',
+        'Constructed parametric SolidWorks CAD assemblies including fuselage, ailerons, horizontal/vertical stabilizers, and motor bulkheads.',
+        'Fabricated airframe with hot-wire cut high-density styrofoam wings, continuous carbon fiber structural spars, and custom 3D-printed mounts.',
+        'Configured a 0.5 Thrust-to-Weight electric powertrain with calibrated CoG (MAC/4) and taildragger landing gear, verified in successful outdoor test flights.'
       ],
-      tags: ['Pixtral Large', 'PaddleOCR', 'EasyOCR', 'Python', 'LLM', 'OCR', 'PyTorch'],
+      tags: ['Fixed-Wing UAV', 'XFLR5', 'SolidWorks CAD', 'Aerodynamics', 'NACA 2412', 'Airframe Fabrication', 'Carbon Fiber', 'Flight Testing'],
       links: [
-        { label: 'GitHub Code', url: 'https://github.com/HarshalKolhe02', type: 'github' }
+        { label: 'GitHub Repository', url: 'https://github.com/HarshalKolhe02/Design-and-Development-of-Fixed-Wing-UAV', type: 'github' }
       ]
     }
   };
@@ -470,11 +471,15 @@
   // Compatibility aliases for legacy or alternate keys
   projectData['nav-assistant'] = projectData['gesture-quadcopter'];
   projectData['careflow'] = projectData['adaptive-nozzle'];
+  projectData['autograde'] = projectData['fixed-wing-uav'];
   projectData['gesture_quadcopter'] = projectData['gesture-quadcopter'];
   projectData['gesture-controlled-quadcopter'] = projectData['gesture-quadcopter'];
   projectData['adaptive_nozzle'] = projectData['adaptive-nozzle'];
   projectData['adaptive-dual-nozzle'] = projectData['adaptive-nozzle'];
   projectData['adaptive-dual-nozzle-sprayer'] = projectData['adaptive-nozzle'];
+  projectData['fixed_wing_uav'] = projectData['fixed-wing-uav'];
+  projectData['fixed-wing'] = projectData['fixed-wing-uav'];
+  projectData['fixed_wing'] = projectData['fixed-wing-uav'];
 
   const modal = $('#projModal');
   const modalClose = $('#projModalClose');

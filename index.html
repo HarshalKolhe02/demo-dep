@@ -502,8 +502,8 @@
           <article class="proj-card reveal" data-cursor="hover" data-project="scan-spray">
             <div class="proj-card__image">
               <picture>
-                <source srcset="assets/img/scan_spray.webp" type="image/webp" />
-                <img src="assets/img/scan_spray.jpg" alt="Dual UAV Scan &amp; Spray Precision Agriculture"
+                <source srcset="assets/img/dual-spray-disp.webp" type="image/webp" />
+                <img src="assets/img/dual-spray-disp.jpg" alt="Dual UAV Scan &amp; Spray for Precision Agriculture"
                   loading="lazy" decoding="async" width="1280" height="720" />
               </picture>
               <div class="proj-card__image-hover">
@@ -517,17 +517,17 @@
               </div>
             </div>
             <div class="proj-card__top">
-              <h3 class="proj-card__title">Dual UAV Scan &amp; Spray &mdash; Precision Agriculture</h3>
+              <h3 class="proj-card__title">Dual UAV Scan &amp; Spray for Precision Agriculture</h3>
             </div>
-            <p class="proj-card__desc">Real-time crop disease detection using OpenCV HSV segmentation (70% accuracy at 6
-              m) with dual-mask filtering under varying outdoor lighting. Built dual-nozzle spray controller (Raspberry
-              Pi + custom PCB), and fabricated a carbon-fiber quadrotor carrying 10 kg fluid payload with 25 cm spraying
-              accuracy.</p>
+            <p class="proj-card__desc">Dual-UAV system with lawnmower field coverage, onboard HSV-based crop detection,
+              GPS geotagging, and autonomous precision spraying. Built with Jetson Orin, SIYI A8 Mini, ArduPilot, and
+              MAVLink telemetry for real-time UAV coordination.</p>
             <div class="proj-card__tags">
               <span class="proj-card__tag">OpenCV</span>
-              <span class="proj-card__tag">Raspberry Pi</span>
+              <span class="proj-card__tag">Raspberry Pi 5</span>
               <span class="proj-card__tag">PCB Design</span>
-              <span class="proj-card__tag">UAV Fabrication</span>
+              <span class="proj-card__tag">ArduPilot</span>
+              <span class="proj-card__tag">MAVLink</span>
               <span class="proj-card__tag">C++</span>
               <span class="proj-card__tag">Python</span>
             </div>
@@ -543,11 +543,11 @@
             </div>
           </article>
 
-          <article class="proj-card reveal" data-cursor="hover" data-project="nav-assistant">
+          <article class="proj-card reveal" data-cursor="hover" data-project="gesture-quadcopter">
             <div class="proj-card__image">
               <picture>
-                <source srcset="assets/img/nav_assistant.webp" type="image/webp" />
-                <img src="assets/img/nav_assistant.jpg" alt="Context Aware Navigation Assistant Perception Pipeline"
+                <source srcset="assets/img/gesture_quadcopter.webp" type="image/webp" />
+                <img src="assets/img/gesture_quadcopter.jpg" alt="Gesture Controlled Autonomous Quadcopter"
                   loading="lazy" decoding="async" width="1280" height="720" />
               </picture>
               <div class="proj-card__image-hover">
@@ -561,22 +561,24 @@
               </div>
             </div>
             <div class="proj-card__top">
-              <h3 class="proj-card__title">Context Aware Navigation Assistant</h3>
+              <h3 class="proj-card__title">Gesture Controlled Quadcopter</h3>
             </div>
-            <p class="proj-card__desc">End-to-end autonomous perception and navigation system for dynamic traffic
-              environments. YOLOv8 + OpenCV pipeline detecting vehicles, pedestrians, and traffic signals (75% accuracy,
-              90% precision). Spatial reasoning and risk assessment modules generate real-time navigation decisions:
-              stop, proceed, turn.</p>
+            <p class="proj-card__desc">Autonomous drone control system mapping real-time hand gestures to flight
+              maneuvers.
+              Multi-threaded architecture running real-time gesture stabilization (deque windowing), MAVLink/MAVProxy
+              telemetry, and SITL flight simulation with ArduPilot and Gazebo.</p>
             <div class="proj-card__tags">
-              <span class="proj-card__tag">YOLOv8</span>
-              <span class="proj-card__tag">OpenCV</span>
+              <span class="proj-card__tag">ArduPilot</span>
+              <span class="proj-card__tag">MAVLink</span>
+              <span class="proj-card__tag">MAVProxy</span>
+              <span class="proj-card__tag">Gazebo</span>
+              <span class="proj-card__tag">SITL</span>
               <span class="proj-card__tag">Python</span>
-              <span class="proj-card__tag">Spatial Reasoning</span>
-              <span class="proj-card__tag">Risk Assessment</span>
             </div>
             <div class="proj-card__links">
-              <button type="button" class="proj-card__detail-btn" data-project="nav-assistant">Details &rarr;</button>
-              <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener">
+              <button type="button" class="proj-card__detail-btn" data-project="gesture-quadcopter">Details
+                &rarr;</button>
+              <a href="https://github.com/HarshalKolhe02/Gesture-Controlled-Quadcopter" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" width="13" height="13">
                   <path
                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
@@ -589,15 +591,15 @@
         </div>
       </div>
 
-      <!-- Software & ML -->
+      <!-- Embedded Systems & Hardware -->
       <div class="proj-cat">
         <div class="proj-cards">
 
-          <article class="proj-card reveal" data-cursor="hover" data-project="careflow">
+          <article class="proj-card reveal" data-cursor="hover" data-project="adaptive-nozzle">
             <div class="proj-card__image">
               <picture>
-                <source srcset="assets/img/careflow.webp" type="image/webp" />
-                <img src="assets/img/careflow.jpg" alt="CareFlow Clinic Management System Dashboard" loading="lazy"
+                <source srcset="assets/img/nozzle_disp.webp" type="image/webp" />
+                <img src="assets/img/nozzle_disp.jpg" alt="Adaptive Dual-Nozzle Spraying System" loading="lazy"
                   decoding="async" width="1280" height="720" />
               </picture>
               <div class="proj-card__image-hover">
@@ -611,22 +613,23 @@
               </div>
             </div>
             <div class="proj-card__top">
-              <h3 class="proj-card__title">CareFlow &mdash; Clinic Management System</h3>
+              <h3 class="proj-card__title">Adaptive Dual-Nozzle Spraying System</h3>
             </div>
-            <p class="proj-card__desc">Full-stack clinic management platform with 38 REST API endpoints across 5 route
-              and 5 service modules (patients, doctors, appointments, billing, admin). 11-table Oracle SQL database with
-              3 PL/SQL automation triggers. 4 analytical views for revenue, workload, and medication insights.</p>
+            <p class="proj-card__desc">Raspberry Pi–based adaptive spraying system for precision agriculture,
+              dynamically switching between precision and wide-area nozzles based on plant clustering. Custom PCB
+              integrates MOSFET switching, relay control, pump actuation, and solenoid valves for reliable automated
+              spraying.</p>
             <div class="proj-card__tags">
-              <span class="proj-card__tag">FastAPI</span>
-              <span class="proj-card__tag">Oracle SQL</span>
-              <span class="proj-card__tag">PL/SQL</span>
-              <span class="proj-card__tag">Docker</span>
+              <span class="proj-card__tag">Raspberry Pi</span>
+              <span class="proj-card__tag">PCB Design</span>
+              <span class="proj-card__tag">ArduCopter</span>
+              <span class="proj-card__tag">Electro-Fluidics</span>
+              <span class="proj-card__tag">PWM Control</span>
               <span class="proj-card__tag">Python</span>
-              <span class="proj-card__tag">REST API</span>
             </div>
             <div class="proj-card__links">
-              <button type="button" class="proj-card__detail-btn" data-project="careflow">Details &rarr;</button>
-              <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener">
+              <button type="button" class="proj-card__detail-btn" data-project="adaptive-nozzle">Details &rarr;</button>
+              <a href="https://github.com/HarshalKolhe02/Adaptive-Dual-Nozzle-Sprayer" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" width="13" height="13">
                   <path
                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
@@ -1204,42 +1207,79 @@
     <!-- ====================== CONTACT ====================== -->
     <section class="section contact" id="contact">
       <div class="contact__inner">
-        <span class="section__index">08</span>
-        <h2 class="contact__title reveal">Let&rsquo;s Build<br />Something<br /><span
-            class="contact__title-em">Together.</span></h2>
-        <p class="contact__sub reveal">
-          I’m looking for internship or full-time roles in Robotics, UAV autonomy, UAV hardware, VTOL systems, and
-          agricultural
-          Systems. If you’re working on
-          problems that require real systems not just simulations &mdash; let’s talk.
-        </p>
-        <a href="mailto:harshalkolhe03@gmail.com" class="contact__email reveal"
-          data-cursor="hover">harshalkolhe03@gmail.com</a>
+        <div class="contact__grid">
 
-        <div class="contact__row reveal">
-          <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener" class="btn btn--ghost"
-            data-cursor="hover">GitHub</a>
-          <a href="https://linkedin.com/in/harshal--kolhe" target="_blank" rel="noopener" class="btn btn--ghost"
-            data-cursor="hover">LinkedIn</a>
-          <a href="Resume/uav_resume.pdf" class="btn btn--solid btn--download" data-cursor="hover" target="_blank"
-            rel="noopener">
-            <svg viewBox="0 0 24 24" width="15" height="15">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-            </svg>
-            View Resume
-          </a>
+          <!-- Left Column: Information & Actions -->
+          <div class="contact__info">
+            <span class="section__index">08</span>
+            <h2 class="contact__title reveal">Let&rsquo;s Build<br />Something<br /><span
+                class="contact__title-em">Together.</span></h2>
+            <p class="contact__sub reveal">
+              I’m looking for internship or full-time roles in Robotics, UAV autonomy, UAV hardware, VTOL systems, and
+              agricultural Systems. If you’re working on problems that require real systems not just simulations &mdash;
+              let’s talk.
+            </p>
+            <a href="mailto:harshalkolhe03@gmail.com" class="contact__email reveal"
+              data-cursor="hover">harshalkolhe03@gmail.com</a>
+
+            <div class="contact__row reveal">
+              <a href="https://github.com/HarshalKolhe02" target="_blank" rel="noopener" class="btn btn--ghost"
+                data-cursor="hover">GitHub</a>
+              <a href="https://linkedin.com/in/harshal--kolhe" target="_blank" rel="noopener" class="btn btn--ghost"
+                data-cursor="hover">LinkedIn</a>
+              <a href="Resume/uav_resume.pdf" class="btn btn--solid btn--download" data-cursor="hover" target="_blank"
+                rel="noopener">
+                <svg viewBox="0 0 24 24" width="15" height="15">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                </svg>
+                View Resume
+              </a>
+            </div>
+
+            <p class="contact__note reveal">
+              Multiple resume versions available for different roles:<br>
+              <a href="Resume/uav_resume.pdf" target="_blank" rel="noopener" data-cursor="hover">UAV Autonomy
+                &amp; Aircraft Systems</a> &middot;
+              <a href="Resume/resume_emb.pdf" target="_blank" rel="noopener" data-cursor="hover">Embedded
+                Systems</a> &middot;
+              <a href="Resume/cv_resume.pdf" target="_blank" rel="noopener" data-cursor="hover">Computer
+                Vision Systems</a>
+            </p>
+          </div>
+
+          <!-- Right Column: Get in Touch Form -->
+          <div class="contact-form-wrap reveal">
+            <h3 class="contact-form__heading">Get in Touch</h3>
+            <p class="contact-form__sub">Have a project, role, or collaboration in mind? Leave a message below.</p>
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="contact-form__row">
+                <div class="contact-form__group">
+                  <label for="cfName">Name</label>
+                  <input type="text" id="cfName" name="name" required placeholder="Your name" autocomplete="name">
+                </div>
+                <div class="contact-form__group">
+                  <label for="cfEmail">Email</label>
+                  <input type="email" id="cfEmail" name="email" required placeholder="your@email.com"
+                    autocomplete="email">
+                </div>
+              </div>
+              <div class="contact-form__group">
+                <label for="cfMsg">Message</label>
+                <textarea id="cfMsg" name="message" required rows="6"
+                  placeholder="Tell me about your project, role, or opportunity..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--solid contact-form__submit" data-cursor="hover">
+                Send Message
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </button>
+              <p class="contact-form__status" id="cfStatus"></p>
+            </form>
+          </div>
+
         </div>
-
-
-        <p class="contact__note reveal">
-          Multiple resume versions available for different roles:<br>
-          <a href="Resume/uav_resume.pdf" target="_blank" rel="noopener" data-cursor="hover">UAV Autonomy
-            & Aircraft Systems</a> &middot;
-          <a href="Resume/resume_emb.pdf" target="_blank" rel="noopener" data-cursor="hover">Embedded
-            Systems</a> &middot;
-          <a href="Resume/cv_resume.pdf" target="_blank" rel="noopener" data-cursor="hover">Computer
-            Vision Systems</a>&middot;
-        </p>
       </div>
     </section>
 

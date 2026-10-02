@@ -317,93 +317,93 @@
       ]
     },
     'scan-spray': {
-      title: 'Dual UAV Scan & Spray — Precision Agriculture',
-      subtitle: 'Autonomous dual-drone ecosystem for targeted disease detection and micro-spraying.',
+      title: 'Dual UAV Scan & Spray for Precision Agriculture',
+      subtitle: 'Autonomous dual-UAV system for real-time crop monitoring, target geotagging, and precision spraying.',
       badges: [
-        { label: 'Hardware & UAV', type: 'research' },
+        { label: 'Research', type: 'research' },
+        { label: 'Computer Vision', type: 'tech' },
         { label: 'Embedded Systems', type: 'tech' },
-        { label: 'Aug 2023 - May 2024', type: 'date' }
+        { label: 'Jan 2026 - Apr 2026', type: 'date' }
       ],
       role: 'Hardware & Systems Lead',
       status: 'Field-Tested',
-      impact: 'Cut pesticide chemical consumption by 65% while maintaining 25 cm spray deposition accuracy.',
-      problem: 'Indiscriminate chemical spraying in large-scale agriculture wastes costly pesticides, accelerates groundwater contamination, and fails to catch early crop blights before full-field contagion.',
-      solution: 'Engineered a cooperative two-tier drone system: a lightweight reconnaissance drone maps crop disease via multi-spectral computer vision, dispatching a heavy-lift quadrotor for micro-targeted chemical spraying.',
-      challenges: 'High-frequency structural vibration from heavy-lift motors inducing IMU drift and camera blur; resolved via tuned silicone vibration isolation mounts and sensor fusion filtering.',
+      impact: 'Achieved 90–95% detection recall and refined target positioning from 1.6–2.4 m GPS-level error to 1–10 cm using vision-assisted centering.',
+      problem: 'Conventional agricultural spraying treats large areas uniformly, leading to chemical wastage and limited ability to respond quickly to localized crop stress.',
+      solution: 'Engineered a cooperative two-UAV system where a lightweight scanning drone performs onboard crop detection and photogrammetric geotagging, while a high-payload spraying drone autonomously receives targets and performs vision-assisted precision spraying.',
+      challenges: 'Achieving reliable crop detection under changing sunlight and reducing meter-level GPS localization error; addressed using dual-region HSV masking, an ND filter, photogrammetric geotagging, and vision-based centering.',
       architecture: 'Cooperative dual-tier UAV network: Lightweight reconnaissance drone executes OpenCV HSV disease detection pipelines on a Raspberry Pi companion computer, relaying localized spray target coordinates over MAVLink telemetry to an ArduPilot heavy-lift quadrotor driving PWM-throttled high-pressure diaphragm spray nozzles.',
-      archImage: 'assets/img/scan_spray.webp',
-      archImageCaption: 'System Overview: Dual-UAV reconnaissance & targeted micro-spraying architecture',
-      insights: 'Decoupling scanning from heavy spraying extends battery lifecycle by 3x compared to all-in-one spray drones carrying heavy fluid continuously.',
+      archImage: 'assets/img/agri_system.webp',
+      archImageCaption: 'Dual-UAV reconnaissance & targeted micro-spraying architecture',
+      insights: 'Separating scanning from spraying enables continuous target detection and treatment, reducing idle hover time while vision-assisted centering converts meter-level positioning uncertainty into 1–10 cm spraying accuracy.',
       highlights: [
-        'Real-time crop disease detection using HSV segmentation and dual-mask thresholding (70% accuracy at 6 m altitude).',
-        'Fabricated custom carbon-fiber quadrotor frame engineered to carry 10 kg fluid payload with 25 cm spraying accuracy.',
+        'Real-time crop-stress detection using HSV segmentation, dual-region masking, and an ND filter, achieving 90–95% recall under field conditions.',
+        'Designed and integrated dual UAV platforms for parallel scanning and targeted spraying across a 2-acre agricultural field.',
         'Designed custom PCB and Raspberry Pi controller driving dual high-pressure nozzles with PWM flow throttling.',
-        'Rigorously tested under variable outdoor solar conditions and gusty wind profiles.'
+        'Implemented vision-assisted proportional control to center the spraying UAV over detected targets with 1–10 cm steady-state positioning error.'
       ],
-      tags: ['OpenCV', 'Raspberry Pi', 'PCB Design', 'UAV Fabrication', 'C++', 'Python', 'Precision Ag'],
+      tags: ['Python', 'OpenCV', 'HSV Computer Vision', 'MAVLink', 'ArduPilot', 'Raspberry Pi 5', 'CubeOrange+', 'SIYI A8 Mini'],
       links: [
-        { label: 'GitHub Code', url: 'https://github.com/HarshalKolhe02', type: 'github' },
-        { label: 'Flight Logs & Demo', url: 'https://github.com/HarshalKolhe02', type: 'demo' }
+        { label: 'GitHub', url: 'https://github.com/IvLabs/Dual_UAV_Scan-and-Spray_for_Precision_Agriculture', type: 'github' }
+        // { label: 'Flight Logs & Demo', url: 'https://github.com/HarshalKolhe02', type: 'demo' }
       ]
     },
-    'nav-assistant': {
-      title: 'Context Aware Navigation Assistant',
-      subtitle: 'Dynamic spatial perception and collision reasoning engine for mobile robots.',
+    'gesture-quadcopter': {
+      title: 'Gesture Controlled Quadcopter',
+      subtitle: 'Autonomous flight control architecture and telemetry bridge translating pilot gestures into real-time quadcopter maneuvers.',
       badges: [
-        { label: 'Robotics', type: 'research' },
-        { label: 'Computer Vision', type: 'tech' },
-        { label: 'Open Source', type: 'code' },
-        { label: '2023 - 2024', type: 'date' }
+        { label: 'ArduPilot & SITL', type: 'code' },
+        { label: 'Gazebo Simulation', type: 'tech' }
       ],
-      role: 'Computer Vision Engineer',
-      status: 'Benchmark Verified',
-      impact: 'Maintained 30+ FPS real-time tracking with sub-50ms reactive braking and avoidance directives.',
-      problem: 'Mobile robots navigating crowded environments often collide with dynamic obstacles because traditional static 2D occupancy grids cannot anticipate the motion vectors of moving humans and vehicles.',
-      solution: 'Built an end-to-end perception pipeline that identifies dynamic objects, predicts their instantaneous velocity vectors and time-to-collision, and issues proactive steering directives.',
-      challenges: 'Camera ego-motion during rapid turns creating false motion vectors; overcome by subtracting robot IMU odometry from detected optical flow fields.',
-      architecture: 'Edge perception & spatial reasoning stack: TensorRT-optimized YOLOv8 model running on an embedded Jetson board, streaming bounding boxes into a SORT Kalman tracker and optical flow motion vector analyzer to feed a dynamic collision risk state machine.',
-      archImage: 'assets/img/nav_assistant.webp',
-      archImageCaption: 'Perception Pipeline: Real-time object tracking, motion vectors & dynamic collision risk assessment',
-      insights: 'Bounding-box trajectory prediction cones are computationally lighter than dense optical flow while delivering identical avoidance lead times.',
+      role: 'UAV Flight Control & Robotics Developer',
+      status: 'Simulation & Test Flight Verified',
+      impact: 'Maintained sub-100ms command dispatch over MAVLink UDP with dual-stage flight safety interlocks preventing sudden aerial instability.',
+      problem: 'Traditional drone control relies on manual RC transmitters or mobile apps, which can be unintuitive and inaccessible in hands-busy operational environments without dedicated pilot training.',
+      solution: 'Developed an end-to-end vision-based flight control interface utilizing fine-tuned gesture inputs to dispatch autonomous MAVLink commands via ArduPilot, running across a multi-threaded telemetry architecture.',
+      challenges: 'Eliminating false-positive triggers and erratic flight commands from transient hand movements; resolved by implementing a 15-frame rolling deque with a 70% consensus threshold and a 1.5s stabilization pause during gesture transitions (plus a 5s sustained hold for land commands).',
+      architecture: 'Asynchronous flight control stack: Ground camera captures video frames evaluated by a fine-tuned gesture recognition thread, feeding a rolling deque stabilizer that dispatches thread-safe MAVLink commands over UDP to ArduPilot SITL and Gazebo Harmonic.',
+      archImage: 'assets/img/gesture_archi.webp',
+      archImageCaption: 'System Architecture',
+      insights: 'Decoupling flight telemetry loops from input perception guarantees uninterrupted vehicle state monitoring, while introducing an inertial dampening pause between opposing flight vectors allows the autopilot to stabilize vehicle momentum without jerky oscillations.',
       highlights: [
-        'YOLOv8 + OpenCV perception pipeline detecting vehicles, pedestrians, and traffic signals (75% accuracy, 90% precision).',
-        'Custom spatial reasoning engine calculating object velocity vectors and time-to-collision.',
-        'Dynamic risk assessment module issuing instant navigational directives: stop, proceed, or safely turn.',
-        'Operates in real-time under low light, heavy rainfall, and partial lens occlusions.'
+        'Configured ArduPilot SITL coupled with Gazebo Harmonic to simulate multirotor aerodynamics, motor thrust, and flight dynamics.',
+        'Multiplexed MAVProxy telemetry streams over concurrent UDP ports, synchronizing Mission Planner GCS and the Python flight execution controller.',
+        'Implemented dual-threaded asynchronous architecture separating gesture evaluation from drone telemetry and MAVLink command dispatch.',
+        'Engineered stability filters using a 15-frame deque (70% consensus) with 1.5s transition pause and 5s landing confirmation.',
+        'Validated end-to-end autonomous navigation (Takeoff, Land, Forward, Backward, Left, Right) in ArduPilot SITL and Gazebo Harmonic simulation.'
       ],
-      tags: ['YOLOv8', 'OpenCV', 'Python', 'Spatial Reasoning', 'TensorRT', 'Robotics'],
+      tags: ['ArduPilot', 'MAVLink', 'MAVProxy', 'Gazebo Harmonic', 'SITL Simulation', 'Autonomous Flight', 'Python'],
       links: [
-        { label: 'GitHub Code', url: 'https://github.com/HarshalKolhe02', type: 'github' },
-        { label: 'Watch Demo Video', url: 'https://github.com/HarshalKolhe02', type: 'demo' }
+        { label: 'GitHub', url: 'https://github.com/HarshalKolhe02/Gesture-Controlled-Quadcopter', type: 'github' }
       ]
     },
-    'careflow': {
-      title: 'CareFlow — Clinic Management System',
-      subtitle: 'Production-grade healthcare platform with modular microservices and automated auditing.',
+    'adaptive-nozzle': {
+      title: 'Adaptive Dual-Nozzle Spraying System',
+      subtitle: 'Adaptive dual-nozzle spraying system for precision agriculture, enabling dynamic switching between wide-area and targeted spraying based on plant clustering requirements.',
       badges: [
-        { label: 'Full-Stack', type: 'code' },
-        { label: 'Backend Architecture', type: 'tech' },
-        { label: '2023', type: 'date' }
+        { label: 'Embedded Systems', type: 'tech' },
+        { label: 'Hardware & PCB', type: 'tech' },
+        { label: 'Precision Agriculture', type: 'research' }
       ],
-      role: 'Lead Backend Architect',
-      status: 'Production Ready',
-      impact: 'Cut patient booking latency by 70% while safeguarding transactional database consistency.',
-      problem: 'Outpatient clinics struggle with fragmented record-keeping, double-booked appointments, and manual billing reconciliation that consumes administrative hours and leaks revenue.',
-      solution: 'Architected a modular FastAPI enterprise clinic platform backed by Oracle SQL with automated PL/SQL database triggers for seamless audit logging and fee computation.',
-      challenges: 'Preventing concurrent double-booking of doctor slots during peak hours; solved using row-level database locks and atomic transaction isolation.',
-      architecture: 'Three-tier decoupled enterprise architecture: Containerized FastAPI REST backend partitioned across 5 decoupled domain microservices, interfacing with an Oracle 19c relational database equipped with automated PL/SQL database triggers and materialized analytical views.',
-      archImage: 'assets/img/careflow.webp',
-      archImageCaption: 'System Architecture: Modular FastAPI backend, real-time analytics & automated Oracle PL/SQL triggers',
-      insights: 'Pushing financial calculations directly into PL/SQL triggers eliminated backend network hops and guaranteed non-repudiation in audit records.',
+      role: 'Embedded Systems & Hardware Lead',
+      status: 'Bench Tested & Flight Verified',
+      impact: 'Enabled selective nozzle control for adaptive spraying while integrating pump control, power distribution, and valve switching into a compact custom PCB.',
+      problem: 'Using a single nozzle for different plant sizes can lead to over-spraying for small plants or insufficient coverage for larger plants.',
+      solution: 'Developed a Raspberry Pi–controlled dual-nozzle spraying system with a custom PCB, diaphragm pump, and independently controlled solenoid valves to dynamically select between precision and wide-area spraying.',
+      challenges: 'Designing reliable switching between two spray paths while safely handling the pump and solenoid-valve loads; addressed through MOSFET-based switching, relay drivers, regulated power distribution, and custom PCB integration.',
+      architecture: 'Hierarchical electro-fluidic architecture: 12V diaphragm pump draws fluid from the tank into a dual-manifold distribution line governed by independent solenoid valves. A custom controller PCB integrates MOSFET switching stages, optoisolated relay drivers, and an onboard 5V step-down regulator, controlled via Raspberry Pi lgpio library or ArduCopter RC channel triggers (Ch 5 pump, Ch 7 nozzle selector).',
+      archImage: 'assets/img/nozzle_archi.webp',
+      archImageCaption: 'System Architecture of the Adaptive Dual-Nozzle Spraying System',
+      insights: 'Learned to integrate embedded control, power electronics, and fluid systems into a compact architecture, while using software-controlled valve sequencing to achieve adaptive spraying and prevent pump lock from pressure buildup.',
       highlights: [
-        '38 REST API endpoints built with FastAPI across 5 decoupled modules (patients, doctors, appointments, billing, analytics).',
-        '11-table Oracle SQL database schema equipped with 3 automated PL/SQL triggers for audit logging and fee computation.',
-        '4 analytical database views providing administrators with instantaneous revenue and workload insights.',
-        'Containerized with Docker and tested with automated pytest integration suites.'
+        'Developed a Raspberry Pi-based spray controller using lgpio for pump and solenoid-valve control.',
+        'Designed and fabricated a custom PCB integrating MOSFET switching, relay drivers, voltage regulation, and power distribution.',
+        'Implemented fail-safe pressure relief logic in Python using the lgpio library to prevent pump stalls and hydraulic shock.',
+        'Implemented a dual-path fluid system with a 12 V diaphragm pump and precision/wide-area spray nozzles.',
+        'Added RC-based manual control, with separate channels for pump activation and nozzle selection.'
       ],
-      tags: ['FastAPI', 'Oracle SQL', 'PL/SQL', 'Docker', 'Python', 'REST API', 'pytest'],
+      tags: ['Raspberry Pi', 'Python', 'lgpio', 'PCB Design', 'MOSFET', 'Relay Control', 'Solenoid Valves', 'Pump Control', 'Embedded Systems', 'Precision Agriculture'],
       links: [
-        { label: 'GitHub Code', url: 'https://github.com/HarshalKolhe02', type: 'github' }
+        { label: 'GitHub', url: 'https://github.com/HarshalKolhe02/Adaptive-Dual-Nozzle-Sprayer', type: 'github' }
       ]
     },
     'qr-checkin': {
@@ -657,7 +657,7 @@
 
       const subject = encodeURIComponent(`Portfolio Message from ${name}`);
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-      window.location.href = `mailto:harshalkolhe04@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:harshalkolhe03@gmail.com?subject=${subject}&body=${body}`;
 
       if (cfStatus) {
         cfStatus.textContent = 'Thank you! Your email client has been opened to send your message.';

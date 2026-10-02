@@ -3093,9 +3093,43 @@ body.nav-open {
     margin-bottom: clamp(26px, 8vw, 40px);
   }
 
-  .research__grid,
-  .proj-cards {
+  .research__grid {
     grid-template-columns: 1fr;
+  }
+
+  .proj-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .proj-card {
+    padding: clamp(14px, 3.5vw, 20px) clamp(12px, 3vw, 16px);
+  }
+
+  .proj-card__title {
+    font-size: clamp(0.92rem, 2.5vw, 1.04rem);
+  }
+
+  .proj-card__desc {
+    font-size: clamp(0.78rem, 2vw, 0.86rem);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .proj-card__tags {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .proj-card__tag {
+    font-size: .62rem;
+    padding: 2px 7px;
+  }
+
+  .proj-card__links {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .about__stats {

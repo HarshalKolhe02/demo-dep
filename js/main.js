@@ -467,6 +467,15 @@
     }
   };
 
+  // Compatibility aliases for legacy or alternate keys
+  projectData['nav-assistant'] = projectData['gesture-quadcopter'];
+  projectData['careflow'] = projectData['adaptive-nozzle'];
+  projectData['gesture_quadcopter'] = projectData['gesture-quadcopter'];
+  projectData['gesture-controlled-quadcopter'] = projectData['gesture-quadcopter'];
+  projectData['adaptive_nozzle'] = projectData['adaptive-nozzle'];
+  projectData['adaptive-dual-nozzle'] = projectData['adaptive-nozzle'];
+  projectData['adaptive-dual-nozzle-sprayer'] = projectData['adaptive-nozzle'];
+
   const modal = $('#projModal');
   const modalClose = $('#projModalClose');
   const modalOverlay = $('#projModalOverlay');
@@ -518,8 +527,13 @@
   if (tabArch) tabArch.addEventListener('click', () => setModalTab('arch'));
 
   function openProjectModal(key) {
+    if (!key) return;
     const data = projectData[key];
-    if (!data || !modal) return;
+    if (!data) {
+      console.warn(`[openProjectModal] Project data not found for key: "${key}"`);
+      return;
+    }
+    if (!modal) return;
 
     setModalTab('overview');
 
@@ -632,6 +646,24 @@
       if (e.target.closest('a')) return;
       openProjectModal(key);
     });
+  });
+
+  // Global event delegation fallback
+  document.addEventListener('click', e => {
+    const detailBtn = e.target.closest('.proj-card__detail-btn');
+    if (detailBtn) {
+      e.stopPropagation();
+      const card = detailBtn.closest('.proj-card');
+      const key = detailBtn.dataset.project || (card && card.dataset.project);
+      if (key) openProjectModal(key);
+      return;
+    }
+
+    const card = e.target.closest('.proj-card');
+    if (card && !e.target.closest('a') && !e.target.closest('button')) {
+      const key = card.dataset.project;
+      if (key) openProjectModal(key);
+    }
   });
 
   /* =================================================================

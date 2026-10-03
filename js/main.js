@@ -125,10 +125,11 @@
 
   /* ---------- Typing animation ---------- */
   const typeWords = [
-    'Robotics Systems',
-    'Embedded Devices',
-    'Computer Vision Systems',
-    'Multi-Agent Drones'
+    'Autonomous UAV Platforms',
+    'Aerial Robotics Systems',
+    'Embedded & Flight Hardware',
+    'VTOL & Autonomy Stacks',
+    'Computer Vision Systems'
   ];
   let twi = 0, tci = 0, typing = true;
 
@@ -414,12 +415,12 @@
         { label: 'Distance Estimation', type: 'tech' },
         { label: 'Rule-based Decision Engine', type: 'tech' },
       ],
-      role: 'Full-Stack Developer',
+      role: 'Computer Vision & Systems Developer',
       status: 'Completed',
       impact: 'Evaluated across 9 street scenes with 83 detected objects, triggering safety stops in all 3 critical collision scenarios. The system also identified safe left-turn corridors in 4 scenes and safe right-turn corridors in 6 scenes.',
       problem: 'Traditional object detection identifies obstacles but does not understand their distance, position, or impact on the vehicle\'s immediate path. The project addresses this gap by adding spatial and contextual reasoning to real-time road perception.',
       solution: 'Built a context-aware navigation assistant combining YOLOv8 detection, monocular distance estimation, five-zone corridor analysis, and a rule-based decision engine. The system evaluates obstacles and turn clearance to generate navigation actions through a visual HUD and voice guidance.',
-      challenges: 'Monocular distance estimation and spatial ambiguity; addressed through pinhole-based depth estimation and five-zone corridor analysis for context-aware navigation decisions..',
+      challenges: 'Monocular distance estimation and spatial ambiguity; addressed through pinhole-based depth estimation and five-zone corridor analysis for context-aware navigation decisions.',
       architecture: 'Real-time computer vision pipeline processing video frames through YOLOv8 detection, depth estimation, corridor-based spatial reasoning, and rule-based navigation logic.',
       archImage: 'assets/img/ca-archi.webp',
       archImageCaption: 'System Architecture of the Context-Aware Navigation Assistant',
